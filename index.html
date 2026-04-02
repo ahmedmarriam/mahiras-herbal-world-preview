@@ -45,16 +45,23 @@ p{margin-bottom:1rem;color:#4a4a4a;line-height:1.7}
 .header-wa{background:#25d366;color:#fff;padding:10px 22px;border-radius:999px;font-size:0.85rem;font-weight:700;display:flex;align-items:center;gap:6px}
 
 /* ─── HERO ─── */
-.hero{background:linear-gradient(135deg,#1a3a1a 0%,#2d7d32 55%,#1b5e20 100%);min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:90px 0 70px;color:#fff}
-.hero::before{content:'';position:absolute;right:-80px;top:-80px;width:500px;height:500px;border-radius:50%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)}
-.hero::after{content:'';position:absolute;right:60px;bottom:-120px;width:350px;height:350px;border-radius:50%;background:rgba(255,255,255,0.03)}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.92);padding:7px 18px;border-radius:999px;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px}
-.hero h1{font-size:3.8rem;color:#fff;line-height:1.1;margin-bottom:22px}
-.hero h1 em{color:#a5d6a7;font-style:italic}
-.hero-sub{font-size:1.1rem;color:rgba(255,255,255,0.82);max-width:470px;margin-bottom:36px;line-height:1.7}
-.hero-btns{display:flex;gap:14px;margin-bottom:44px;flex-wrap:wrap}
-.hero-stats{display:flex;align-items:center;gap:24px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:20px 28px;width:fit-content}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:92vh;position:relative;overflow:hidden}
+.hero-left{background:linear-gradient(160deg,#1a3a1a 0%,#2d7d32 100%);display:flex;align-items:center;padding:80px 60px 80px 40px;position:relative;z-index:1}
+.hero-left::after{content:'';position:absolute;top:0;right:-60px;width:120px;height:100%;background:inherit;transform:skewX(-4deg);z-index:0}
+.hero-grid{position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.95);padding:8px 20px;border-radius:999px;font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:28px}
+.hero h1{font-size:3.6rem;color:#fff;line-height:1.08;margin-bottom:24px}
+.hero h1 em{color:#a5d6a7;font-style:italic;display:block}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.8);max-width:440px;margin-bottom:38px;line-height:1.75}
+.hero-btns{display:flex;gap:14px;margin-bottom:48px;flex-wrap:wrap}
+.hero-stats{display:flex;align-items:center;gap:20px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:18px 24px;width:fit-content}
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.hero-right-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(26,58,26,0.35) 0%,transparent 40%)}
+.hero-founder-badge{position:absolute;bottom:36px;left:36px;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-radius:14px;padding:14px 20px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,0.2)}
+.hero-founder-badge i{color:#2d7d32;font-size:1rem}
+.hero-founder-badge strong{display:block;font-size:0.9rem;color:#1a1a1a;font-weight:700}
+.hero-founder-badge span{font-size:0.75rem;color:#666}
 .stat strong{display:block;font-size:1.7rem;font-weight:700;color:#fff;font-family:Georgia,serif}
 .stat span{font-size:0.72rem;color:rgba(255,255,255,0.65);text-transform:uppercase;letter-spacing:0.06em}
 .stat-div{width:1px;height:40px;background:rgba(255,255,255,0.2)}
@@ -243,38 +250,35 @@ p{margin-bottom:1rem;color:#4a4a4a;line-height:1.7}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="container">
+  <div class="hero-left">
     <div class="hero-grid">
-      <div>
-        <div class="hero-badge">🌿 &nbsp; 100% Natural &amp; Herbal</div>
-        <h1>Providing You<br><em>The Glory of Nature</em></h1>
-        <p class="hero-sub">Discover Mahira's handcrafted herbal wellness &amp; personal care products — trusted by thousands across Pakistan.</p>
-        <div class="hero-btns">
-          <a href="#" class="btn btn-primary btn-lg">🛍 &nbsp; Shop Now</a>
-          <a href="#" class="btn btn-whatsapp btn-lg">💬 &nbsp; Order on WhatsApp</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat"><strong>500+</strong><span>Happy Customers</span></div>
-          <div class="stat-div"></div>
-          <div class="stat"><strong>33+</strong><span>Products</span></div>
-          <div class="stat-div"></div>
-          <div class="stat"><strong>100%</strong><span>Herbal</span></div>
-        </div>
+      <div class="hero-badge">🌿 &nbsp; 100% Natural &amp; Herbal</div>
+      <h1>We're Bringing<br><em>The Healing Power<br>of Herbs To You</em></h1>
+      <p class="hero-sub">Mahira's Herbal World offers handcrafted, chemical-free herbal remedies for skin, hair and whole-body wellness — trusted across Pakistan.</p>
+      <div class="hero-btns">
+        <a href="shop.html" class="btn btn-white btn-lg">🛍 &nbsp; Shop All Products</a>
+        <a href="https://wa.me/923008238581" target="_blank" class="btn btn-whatsapp btn-lg">💬 &nbsp; Order on WhatsApp</a>
       </div>
-      <div class="hero-visual">
-        <div class="hero-founder-card">
-          <img src="./images/mahira-shafi.JPG" alt="Mahira Shafi" class="hero-founder-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="hero-founder-img-fallback" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:5rem">🌿</div>
-          <div class="hero-founder-badge">🌿 Certified Herbalist &amp; Founder</div>
-          <div class="hero-founder-name">Mahira Shafi</div>
-        </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>500+</strong><span>Happy Customers</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><strong>34</strong><span>Products</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><strong>100%</strong><span>Herbal</span></div>
       </div>
     </div>
   </div>
-  <div class="hero-wave">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path fill="#faf7f2" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"/>
-    </svg>
+  <div class="hero-right">
+    <img src="./images/mahira-shafi.JPG" alt="Mahira Shafi — Founder, Mahira's Herbal World"
+         onerror="this.src='./images/mahira-shafi-2.JPG'">
+    <div class="hero-right-overlay"></div>
+    <div class="hero-founder-badge">
+      <i class="fas fa-leaf"></i>
+      <div>
+        <strong>Mahira Shafi</strong>
+        <span>Certified Herbalist &amp; Founder</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -316,14 +320,14 @@ p{margin-bottom:1rem;color:#4a4a4a;line-height:1.7}
       <p class="sec-desc">Our most loved herbal products, chosen by our community.</p>
     </div>
     <div class="prod-grid">
-      <div class="prod-card"><div class="prod-img">🌿</div><div class="prod-body"><div class="prod-cat">Herbal Medicines</div><div class="prod-name">Sehat-e-Maidah</div><p class="prod-desc">For acidity, gas &amp; bloating</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
-      <div class="prod-card"><div class="prod-img">💊</div><div class="prod-body"><div class="prod-cat">Herbal Medicines</div><div class="prod-name">Gluco Fit</div><p class="prod-desc">Diabetes &amp; sugar regulation support</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
-      <div class="prod-card"><div class="prod-img">🤲</div><div class="prod-body"><div class="prod-cat">Wellness</div><div class="prod-name">Pain Relief Oil</div><p class="prod-desc">Joint &amp; muscle pain support</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
-      <div class="prod-card"><div class="prod-img">✨</div><div class="prod-body"><div class="prod-cat">Skincare</div><div class="prod-name">Facial Glow</div><p class="prod-desc">Herbal mask for radiant skin</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
-      <div class="prod-card"><div class="prod-img">💆</div><div class="prod-body"><div class="prod-cat">Haircare</div><div class="prod-name">Lock Lustre Hair Oil</div><p class="prod-desc">Strengthens roots &amp; promotes growth</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
-      <div class="prod-card"><div class="prod-img">🌱</div><div class="prod-body"><div class="prod-cat">Wellness</div><div class="prod-name">Moringa Powder</div><p class="prod-desc">Superfood for vitality &amp; energy</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
-      <div class="prod-card"><div class="prod-img">🌹</div><div class="prod-body"><div class="prod-cat">Skincare</div><div class="prod-name">Rose Extract</div><p class="prod-desc">Pure herbal toner for glowing skin</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
-      <div class="prod-card"><div class="prod-img">🧠</div><div class="prod-body"><div class="prod-cat">Herbal Medicines</div><div class="prod-name">Ashwagandha</div><p class="prod-desc">Natural anxiety relief</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+            <div class="prod-card"><img src="./images/products/sehat-e-maydah.jpg" alt="Sehat-e-Maidah" style="width:100%;aspect-ratio:1;object-fit:cover;display:block" onerror="this.style.background='#e8f5e9';this.style.minHeight='180px'"><div class="prod-body"><div class="prod-cat">Herbal Medicines</div><div class="prod-name">Sehat-e-Maidah</div><p class="prod-desc">Restores complete digestive harmony — relieves acidity, bloating, constipation and heartburn.</p><a href="https://wa.me/923008238581?text=Hi!%20I%20want%20to%20order%20Sehat-e-Maidah" target="_blank" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+            <div class="prod-card"><img src="./images/products/gluco-fit.jpg" alt="Gluco Fit" style="width:100%;aspect-ratio:1;object-fit:cover;display:block" onerror="this.style.background='#e8f5e9';this.style.minHeight='180px'"><div class="prod-body"><div class="prod-cat">Herbal Medicines</div><div class="prod-name">Gluco Fit</div><p class="prod-desc">Supports healthy blood sugar regulation and helps manage diabetes naturally.</p><a href="https://wa.me/923008238581?text=Hi!%20I%20want%20to%20order%20Gluco%20Fit" target="_blank" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+            <div class="prod-card"><img src="./images/products/pain-relief-oil.jpg" alt="Pain Relief Oil" style="width:100%;aspect-ratio:1;object-fit:cover;display:block" onerror="this.style.background='#e8f5e9';this.style.minHeight='180px'"><div class="prod-body"><div class="prod-cat">Wellness</div><div class="prod-name">Pain Relief Oil</div><p class="prod-desc">Penetrates deep to relieve joint pain, muscle aches, sprains and frozen shoulder — zero chemicals.</p><a href="https://wa.me/923008238581?text=Hi!%20I%20want%20to%20order%20Pain%20Relief%20Oil" target="_blank" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+            <div class="prod-card"><img src="./images/products/facial-glow.jpg" alt="Facial Glow" style="width:100%;aspect-ratio:1;object-fit:cover;display:block" onerror="this.style.background='#e8f5e9';this.style.minHeight='180px'"><div class="prod-body"><div class="prod-cat">Skincare</div><div class="prod-name">Facial Glow</div><p class="prod-desc">All-natural exfoliating mask for visibly plump, radiant and ageless skin every single use.</p><a href="https://wa.me/923008238581?text=Hi!%20I%20want%20to%20order%20Facial%20Glow" target="_blank" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+            <div class="prod-card"><img src="./images/products/lock-lustre-hair-oil.jpg" alt="Lock Lustre Hair Oil" style="width:100%;aspect-ratio:1;object-fit:cover;display:block" onerror="this.style.background='#e8f5e9';this.style.minHeight='180px'"><div class="prod-body"><div class="prod-cat">Haircare</div><div class="prod-name">Lock Lustre Hair Oil</div><p class="prod-desc">Six herbal oils that reduce hair fall, stimulate growth and leave hair thick and shiny.</p><a href="https://wa.me/923008238581?text=Hi!%20I%20want%20to%20order%20Lock%20Lustre%20Hair%20Oil" target="_blank" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+            <div class="prod-card"><img src="./images/products/moringa-powder.jpg" alt="Moringa Powder" style="width:100%;aspect-ratio:1;object-fit:cover;display:block" onerror="this.style.background='#e8f5e9';this.style.minHeight='180px'"><div class="prod-body"><div class="prod-cat">Wellness</div><div class="prod-name">Moringa Powder</div><p class="prod-desc">Nature's most nutrient-dense superfood — daily energy, immunity and whole-body nourishment.</p><a href="https://wa.me/923008238581?text=Hi!%20I%20want%20to%20order%20Moringa%20Powder" target="_blank" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+            <div class="prod-card"><img src="./images/products/rose-extract.jpg" alt="Rose Extract" style="width:100%;aspect-ratio:1;object-fit:cover;display:block" onerror="this.style.background='#e8f5e9';this.style.minHeight='180px'"><div class="prod-body"><div class="prod-cat">Skincare</div><div class="prod-name">Rose Extract</div><p class="prod-desc">Organic rose tonic: toner, setting spray, sunscreen and aftershave all in one bottle.</p><a href="https://wa.me/923008238581?text=Hi!%20I%20want%20to%20order%20Rose%20Extract" target="_blank" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+            <div class="prod-card"><img src="./images/products/ashwagandha.jpg" alt="Ashwagandha" style="width:100%;aspect-ratio:1;object-fit:cover;display:block" onerror="this.style.background='#e8f5e9';this.style.minHeight='180px'"><div class="prod-body"><div class="prod-cat">Herbal Medicines</div><div class="prod-name">Ashwagandha</div><p class="prod-desc">Naturally calms anxiety, lowers cortisol and restores physical and mental resilience.</p><a href="https://wa.me/923008238581?text=Hi!%20I%20want%20to%20order%20Ashwagandha" target="_blank" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
     </div>
     <div class="sec-cta"><a href="#" class="btn btn-outline btn-lg">View All 33 Products →</a></div>
   </div>
