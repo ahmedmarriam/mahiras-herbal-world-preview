@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahira's Herbal World — Preview</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;color:#1a1a1a;background:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+h1,h2,h3,h4{font-family:Georgia,'Times New Roman',serif;font-weight:700;line-height:1.25;color:#1a1a1a}
+h1{font-size:3.2rem}h2{font-size:2.4rem}h3{font-size:1.5rem}
+p{margin-bottom:1rem;color:#4a4a4a;line-height:1.7}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:999px;font-size:0.95rem;font-weight:700;cursor:pointer;border:2px solid transparent;white-space:nowrap;font-family:inherit}
+.btn-lg{padding:17px 38px;font-size:1rem}
+.btn-sm{padding:9px 20px;font-size:0.85rem}
+.btn-primary{background:#2d7d32;color:#fff;border-color:#2d7d32}
+.btn-outline{background:transparent;color:#2d7d32;border-color:#2d7d32}
+.btn-whatsapp{background:#25d366;color:#fff;border-color:#25d366}
+.btn-white{background:#fff;color:#2d7d32;border-color:#fff}
+.btn-grey{background:#f0ebe0;color:#2d7d32;border-color:#f0ebe0}
+
+/* EYEBROW */
+.eyebrow{display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#2d7d32;background:#e8f5e9;padding:6px 16px;border-radius:999px;margin-bottom:14px}
+.eyebrow-white{background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9)}
+
+/* ─── ANNOUNCEMENT BAR ─── */
+.ann-bar{background:#1b5e20;color:#fff;padding:10px 0;text-align:center;font-size:0.82rem;font-weight:500;letter-spacing:0.02em}
+.ann-bar span{color:#a5d6a7;font-weight:700}
+
+/* ─── HEADER ─── */
+.header{background:#fff;box-shadow:0 2px 16px rgba(0,0,0,0.08);position:sticky;top:0;z-index:100}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo-wrap{display:flex;flex-direction:column}
+.logo-name{font-family:Georgia,serif;font-size:1.3rem;font-weight:700;color:#1b5e20;line-height:1.1}
+.logo-tag{font-size:0.62rem;color:#888;letter-spacing:0.08em;text-transform:uppercase;margin-top:2px}
+.nav{display:flex;gap:4px}
+.nav a{padding:8px 14px;font-size:0.88rem;font-weight:600;color:#1a1a1a;border-radius:8px}
+.nav a:hover{color:#2d7d32;background:#e8f5e9}
+.nav a.active{color:#2d7d32;background:#e8f5e9}
+.header-wa{background:#25d366;color:#fff;padding:10px 22px;border-radius:999px;font-size:0.85rem;font-weight:700;display:flex;align-items:center;gap:6px}
+
+/* ─── HERO ─── */
+.hero{background:linear-gradient(135deg,#1a3a1a 0%,#2d7d32 55%,#1b5e20 100%);min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:90px 0 70px;color:#fff}
+.hero::before{content:'';position:absolute;right:-80px;top:-80px;width:500px;height:500px;border-radius:50%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)}
+.hero::after{content:'';position:absolute;right:60px;bottom:-120px;width:350px;height:350px;border-radius:50%;background:rgba(255,255,255,0.03)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.92);padding:7px 18px;border-radius:999px;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px}
+.hero h1{font-size:3.8rem;color:#fff;line-height:1.1;margin-bottom:22px}
+.hero h1 em{color:#a5d6a7;font-style:italic}
+.hero-sub{font-size:1.1rem;color:rgba(255,255,255,0.82);max-width:470px;margin-bottom:36px;line-height:1.7}
+.hero-btns{display:flex;gap:14px;margin-bottom:44px;flex-wrap:wrap}
+.hero-stats{display:flex;align-items:center;gap:24px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:20px 28px;width:fit-content}
+.stat strong{display:block;font-size:1.7rem;font-weight:700;color:#fff;font-family:Georgia,serif}
+.stat span{font-size:0.72rem;color:rgba(255,255,255,0.65);text-transform:uppercase;letter-spacing:0.06em}
+.stat-div{width:1px;height:40px;background:rgba(255,255,255,0.2)}
+/* Hero Visual */
+.hero-visual{display:flex;justify-content:center;align-items:center}
+.hero-circle{width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;position:relative}
+.hero-circle::before{content:'';position:absolute;inset:-22px;border-radius:50%;border:1px solid rgba(255,255,255,0.06)}
+.hero-circle::after{content:'';position:absolute;inset:-44px;border-radius:50%;border:1px solid rgba(255,255,255,0.03)}
+.hero-inner-circle{width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative}
+.hero-dot{position:absolute;background:rgba(165,214,167,0.15);border:1px solid rgba(165,214,167,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.hero-dot-1{width:58px;height:58px;top:4px;right:20px}
+.hero-dot-2{width:50px;height:50px;bottom:20px;right:2px}
+.hero-dot-3{width:54px;height:54px;top:28px;left:2px}
+/* Wave */
+.hero-wave{position:absolute;bottom:0;left:0;right:0;line-height:0}
+.hero-founder-card{position:relative;display:flex;flex-direction:column;align-items:center}
+.hero-founder-img{width:360px;height:440px;object-fit:cover;border-radius:180px 180px 160px 160px;border:4px solid rgba(255,255,255,0.25);box-shadow:0 20px 60px rgba(0,0,0,0.35);display:block}
+.hero-founder-badge{margin-top:16px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:7px 18px;border-radius:999px;font-size:0.78rem;font-weight:700;letter-spacing:0.06em}
+.hero-founder-name{color:#a5d6a7;font-size:1.1rem;font-weight:700;margin-top:8px;letter-spacing:0.04em}
+.hero-wave svg{width:100%;display:block}
+
+/* ─── TRUST ─── */
+.trust{background:#faf7f2;border-bottom:1px solid #e2ddd4}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-item{display:flex;align-items:center;gap:14px;padding:26px 22px;border-right:1px solid #e2ddd4}
+.trust-item:last-child{border-right:none}
+.trust-icon{width:50px;height:50px;border-radius:50%;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.trust-text strong{display:block;font-size:0.9rem;font-weight:700;color:#1a1a1a;margin-bottom:2px}
+.trust-text span{font-size:0.76rem;color:#888}
+
+/* ─── SECTION ─── */
+.section{padding:80px 0}
+.sec-head{text-align:center;margin-bottom:52px}
+.sec-title{margin-bottom:14px}
+.sec-desc{max-width:550px;margin:0 auto;color:#777;font-size:1.02rem}
+.sec-cta{text-align:center;margin-top:44px}
+
+/* ─── CATEGORIES ─── */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.cat-card{background:#fff;border:1px solid #e2ddd4;border-radius:20px;padding:30px 26px;transition:all 0.3s;cursor:pointer;position:relative;overflow:hidden}
+.cat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:#2d7d32;transform:scaleX(0);transition:transform 0.3s;transform-origin:left}
+.cat-icon{width:62px;height:62px;border-radius:12px;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:18px}
+.cat-name{font-size:1.1rem;font-weight:700;margin-bottom:7px;color:#1a1a1a}
+.cat-desc{font-size:0.83rem;color:#888;margin-bottom:10px;line-height:1.5}
+.cat-badge{display:inline-block;font-size:0.74rem;font-weight:700;color:#2d7d32;background:#e8f5e9;padding:3px 10px;border-radius:999px}
+
+/* ─── PRODUCTS ─── */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.prod-card{background:#fff;border:1px solid #e2ddd4;border-radius:14px;overflow:hidden;transition:all 0.3s}
+.prod-img{aspect-ratio:1;background:linear-gradient(135deg,#e8f5e9,#f0ebe0);display:flex;align-items:center;justify-content:center;font-size:3.2rem}
+.prod-body{padding:18px}
+.prod-cat{font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#2d7d32;margin-bottom:6px}
+.prod-name{font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:5px;font-family:Georgia,serif}
+.prod-desc{font-size:0.8rem;color:#888;margin-bottom:14px;line-height:1.5}
+
+/* ─── ABOUT ─── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:70px}
+.about-img-box{border-radius:24px;background:linear-gradient(135deg,#e8f5e9,#f0ebe0);aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;font-size:5rem;border:2px dashed #a5d6a7;position:relative}
+.about-img-box span{font-family:Georgia,serif;font-size:1rem;color:#2d7d32;font-weight:600}
+.about-img-box small{font-size:0.75rem;color:#888;font-family:inherit}
+.about-badge{position:absolute;bottom:32px;right:-18px;background:#fff;border:1px solid #e2ddd4;border-radius:12px;padding:12px 18px;display:flex;align-items:center;gap:8px;font-weight:700;font-size:0.83rem;box-shadow:0 4px 16px rgba(0,0,0,0.1)}
+.about-content .sec-title{text-align:left;margin-bottom:16px}
+.about-lead{font-size:1.08rem;font-weight:600;color:#1a1a1a;margin-bottom:14px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0 32px}
+.check{display:flex;align-items:center;gap:8px;font-size:0.87rem;font-weight:600;color:#1a1a1a}
+.check::before{content:'✓';color:#2d7d32;font-weight:700;font-size:1rem}
+
+/* ─── PROMO BANNER ─── */
+.promo-wrap{padding:0 0 80px}
+.promo{background:linear-gradient(135deg,#1b5e20,#2d7d32);border-radius:24px;padding:48px 56px;display:flex;align-items:center;justify-content:space-between;gap:28px;position:relative;overflow:hidden}
+.promo::before{content:'';position:absolute;right:-50px;top:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.05)}
+.promo-label{display:inline-block;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;margin-bottom:10px}
+.promo h2{color:#fff;font-size:1.7rem;margin-bottom:7px}
+.promo p{color:rgba(255,255,255,0.78);margin:0}
+
+/* ─── TESTIMONIALS ─── */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.testi-card{background:#fff;border:1px solid #e2ddd4;border-radius:18px;padding:28px;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+.stars{color:#f59e0b;font-size:0.9rem;letter-spacing:2px;margin-bottom:14px}
+.testi-text{font-size:0.92rem;line-height:1.7;color:#555;margin-bottom:22px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#a5d6a7}
+.testi-author strong{display:block;font-size:0.9rem;color:#1a1a1a}
+.testi-author span{font-size:0.76rem;color:#888}
+.testi-product{display:inline-flex;align-items:center;gap:5px;font-size:0.73rem;font-weight:700;color:#2d7d32;background:#e8f5e9;padding:4px 11px;border-radius:999px}
+.slider-wrap{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:28px}
+.sl-btn{width:42px;height:42px;border-radius:50%;border:2px solid #e2ddd4;display:flex;align-items:center;justify-content:center;font-size:0.85rem;cursor:pointer;background:#fff}
+.sl-dots{display:flex;gap:7px}
+.sl-dot{width:8px;height:8px;border-radius:50%;background:#e2ddd4}
+.sl-dot.on{background:#2d7d32;width:24px;border-radius:4px}
+
+/* ─── BLOG ─── */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.blog-card{background:#fff;border:1px solid #e2ddd4;border-radius:18px;overflow:hidden}
+.blog-img{aspect-ratio:3/2;background:linear-gradient(135deg,#e8f5e9,#f5f0e8);display:flex;align-items:center;justify-content:center;font-size:2.8rem}
+.blog-body{padding:22px}
+.blog-meta{display:flex;gap:12px;font-size:0.73rem;color:#aaa;margin-bottom:10px}
+.blog-title{font-size:1rem;font-weight:700;margin-bottom:8px;color:#1a1a1a;font-family:Georgia,serif}
+.blog-exc{font-size:0.82rem;color:#888;margin-bottom:14px;line-height:1.55}
+.blog-link{font-size:0.83rem;font-weight:700;color:#2d7d32}
+
+/* ─── SOCIAL ─── */
+.social-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.insta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:20px}
+.insta-box{aspect-ratio:1;background:#f0ebe0;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:#ccc}
+.yt-embed{border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.1);margin-top:20px}
+.yt-embed iframe{display:block;width:100%}
+
+/* ─── CTA STRIP ─── */
+.cta-strip{background:linear-gradient(135deg,#1a3a1a,#2d7d32);padding:80px 0}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap}
+.cta-inner h2{color:#fff;margin-bottom:8px}
+.cta-inner p{color:rgba(255,255,255,0.78);margin:0;max-width:480px}
+.cta-btns{display:flex;gap:13px;flex-wrap:wrap}
+
+/* ─── NEWSLETTER ─── */
+.newsletter{background:#1b5e20;padding:56px 0}
+.nl-inner{display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap}
+.nl-inner h3{color:#fff;font-size:1.5rem;margin-bottom:5px;font-family:Georgia,serif}
+.nl-inner p{color:rgba(255,255,255,0.72);margin:0;font-size:0.9rem}
+.nl-form{flex:1;max-width:480px}
+.nl-field{display:flex;border-radius:999px;overflow:hidden;border:2px solid rgba(255,255,255,0.2)}
+.nl-field input{flex:1;padding:13px 20px;background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:0.9rem;outline:none;font-family:inherit}
+.nl-field input::placeholder{color:rgba(255,255,255,0.45)}
+.nl-field .btn-primary{border-radius:0;border:none;flex-shrink:0;font-size:0.88rem}
+
+/* ─── FOOTER ─── */
+.footer-main{background:#0f180f;padding:68px 0 36px}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1.2fr;gap:44px}
+.footer-brand-name{font-family:Georgia,serif;font-size:1.2rem;color:#fff;font-weight:700;display:block}
+.footer-brand-tag{font-size:0.7rem;color:rgba(255,255,255,0.4);letter-spacing:0.07em;text-transform:uppercase;display:block;margin:3px 0 14px}
+.footer-about-text{font-size:0.84rem;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:22px}
+.footer-socials{display:flex;gap:9px}
+.soc-icon{width:37px;height:37px;border-radius:50%;border:1px solid rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.65);font-size:0.9rem}
+.f-col-title{font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:18px}
+.f-links{display:flex;flex-direction:column;gap:9px}
+.f-links a{font-size:0.86rem;color:rgba(255,255,255,0.6)}
+.f-contact{display:flex;flex-direction:column;gap:11px;margin-bottom:18px}
+.f-contact li{display:flex;align-items:center;gap:10px;font-size:0.84rem;color:rgba(255,255,255,0.6)}
+.f-contact-icon{font-size:1rem;min-width:18px}
+.footer-bottom{background:#080d08;padding:18px 0}
+.footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-copy{font-size:0.8rem;color:rgba(255,255,255,0.38);margin:0}
+.footer-note{font-size:0.76rem;color:rgba(255,255,255,0.3);margin:0}
+
+/* ─── FLOATING WA ─── */
+.float-wa{position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 4px 20px rgba(37,211,102,0.5);z-index:999}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="ann-bar">
+  <div class="container">
+    🚚 Free delivery on orders above Rs. 8,000 &nbsp;|&nbsp; 💬 Order via WhatsApp: <span>+92 300 8238581</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <img src="./images/logo.png"
+             alt="Mahira's Herbal World"
+             style="height:52px;width:auto;display:block"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div style="display:none;flex-direction:column">
+          <span class="logo-name">Mahira's Herbal World</span>
+          <span class="logo-tag">Providing You The Glory of Nature</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#" class="active">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Reviews</a>
+        <a href="#">FAQ</a>
+        <a href="#">Contact</a>
+      </nav>
+      <a href="#" class="header-wa">🛒 &nbsp; Order Now</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">🌿 &nbsp; 100% Natural &amp; Herbal</div>
+        <h1>Providing You<br><em>The Glory of Nature</em></h1>
+        <p class="hero-sub">Discover Mahira's handcrafted herbal wellness &amp; personal care products — trusted by thousands across Pakistan.</p>
+        <div class="hero-btns">
+          <a href="#" class="btn btn-primary btn-lg">🛍 &nbsp; Shop Now</a>
+          <a href="#" class="btn btn-whatsapp btn-lg">💬 &nbsp; Order on WhatsApp</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>500+</strong><span>Happy Customers</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>33+</strong><span>Products</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>100%</strong><span>Herbal</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-founder-card">
+          <img src="./images/mahira-shafi.JPG" alt="Mahira Shafi" class="hero-founder-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="hero-founder-img-fallback" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:5rem">🌿</div>
+          <div class="hero-founder-badge">🌿 Certified Herbalist &amp; Founder</div>
+          <div class="hero-founder-name">Mahira Shafi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#faf7f2" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+</section>
+
+<!-- TRUST BADGES -->
+<section class="trust">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item"><div class="trust-icon">🌿</div><div class="trust-text"><strong>100% Herbal</strong><span>Pure natural ingredients</span></div></div>
+      <div class="trust-item"><div class="trust-icon">🛡️</div><div class="trust-text"><strong>Trusted Quality</strong><span>Tested &amp; reliable formulas</span></div></div>
+      <div class="trust-item"><div class="trust-icon">🚚</div><div class="trust-text"><strong>Nationwide Delivery</strong><span>Fast &amp; secure shipping</span></div></div>
+      <div class="trust-item"><div class="trust-icon">💬</div><div class="trust-text"><strong>WhatsApp Support</strong><span>Order &amp; chat anytime</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section" style="background:#fff">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">Our Collections</span>
+      <h2 class="sec-title">Shop by Category</h2>
+      <p class="sec-desc">Explore our full range of herbal wellness &amp; personal care products crafted for you.</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card"><div class="cat-icon">✨</div><div class="cat-name">Skincare</div><p class="cat-desc">Glow serums, masks &amp; creams</p><span class="cat-badge">9 Products</span></div>
+      <div class="cat-card"><div class="cat-icon">🌿</div><div class="cat-name">Haircare</div><p class="cat-desc">Oils &amp; serums for healthy hair</p><span class="cat-badge">2 Products</span></div>
+      <div class="cat-card"><div class="cat-icon">❤️</div><div class="cat-name">Wellness</div><p class="cat-desc">Inner health &amp; vitality boosters</p><span class="cat-badge">6 Products</span></div>
+      <div class="cat-card"><div class="cat-icon">🌱</div><div class="cat-name">Herbal Medicines</div><p class="cat-desc">Natural remedies &amp; healing</p><span class="cat-badge">16 Products</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="section" style="background:#faf7f2">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">Bestsellers</span>
+      <h2 class="sec-title">Featured Products</h2>
+      <p class="sec-desc">Our most loved herbal products, chosen by our community.</p>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card"><div class="prod-img">🌿</div><div class="prod-body"><div class="prod-cat">Herbal Medicines</div><div class="prod-name">Sehat-e-Maidah</div><p class="prod-desc">For acidity, gas &amp; bloating</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+      <div class="prod-card"><div class="prod-img">💊</div><div class="prod-body"><div class="prod-cat">Herbal Medicines</div><div class="prod-name">Gluco Fit</div><p class="prod-desc">Diabetes &amp; sugar regulation support</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+      <div class="prod-card"><div class="prod-img">🤲</div><div class="prod-body"><div class="prod-cat">Wellness</div><div class="prod-name">Pain Relief Oil</div><p class="prod-desc">Joint &amp; muscle pain support</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+      <div class="prod-card"><div class="prod-img">✨</div><div class="prod-body"><div class="prod-cat">Skincare</div><div class="prod-name">Facial Glow</div><p class="prod-desc">Herbal mask for radiant skin</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+      <div class="prod-card"><div class="prod-img">💆</div><div class="prod-body"><div class="prod-cat">Haircare</div><div class="prod-name">Lock Lustre Hair Oil</div><p class="prod-desc">Strengthens roots &amp; promotes growth</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+      <div class="prod-card"><div class="prod-img">🌱</div><div class="prod-body"><div class="prod-cat">Wellness</div><div class="prod-name">Moringa Powder</div><p class="prod-desc">Superfood for vitality &amp; energy</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+      <div class="prod-card"><div class="prod-img">🌹</div><div class="prod-body"><div class="prod-cat">Skincare</div><div class="prod-name">Rose Extract</div><p class="prod-desc">Pure herbal toner for glowing skin</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+      <div class="prod-card"><div class="prod-img">🧠</div><div class="prod-body"><div class="prod-cat">Herbal Medicines</div><div class="prod-name">Ashwagandha</div><p class="prod-desc">Natural anxiety relief</p><a href="#" class="btn btn-whatsapp btn-sm">💬 Order on WhatsApp</a></div></div>
+    </div>
+    <div class="sec-cta"><a href="#" class="btn btn-outline btn-lg">View All 33 Products →</a></div>
+  </div>
+</section>
+
+<!-- ABOUT SNIPPET -->
+<section class="section" style="background:#fff">
+  <div class="container">
+    <div class="about-grid">
+      <div style="position:relative">
+        <div class="about-img-box" style="background:none;border:none;padding:0;aspect-ratio:4/5;overflow:hidden;border-radius:24px">
+          <img src="./images/mahira-shafi-2.JPG"
+               alt="Mahira Shafi"
+               style="width:100%;height:100%;object-fit:cover;border-radius:24px;display:block"
+               onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e8f5e9,#f0ebe0)';this.parentElement.innerHTML='<span style=font-size:5rem>🌿</span><span style=font-family:Georgia,serif;font-size:1rem;color:#2d7d32;font-weight:600>Mahira Shafi</span>'">
+        </div>
+        <div class="about-badge">🌿 &nbsp; Certified Herbalist &amp; Founder</div>
+      </div>
+      <div class="about-content">
+        <div><span class="eyebrow">The Founder</span></div>
+        <h2 class="sec-title">Rooted in Tradition.<br>Guided by Knowledge.</h2>
+        <p class="about-lead" style="font-style:italic;color:#555;border-left:3px solid #2d7d32;padding-left:16px;margin:16px 0 20px">"For Mahira, healing isn't a product. It's a responsibility."</p>
+        <p>Mahira Shafi's journey began in childhood, learning about herbs alongside her herbalist father. Before dedicating herself to natural wellness, she built an extraordinary media career — joining <strong>Pakistan Television (PTV)</strong> as a newscaster and <strong>Radio Pakistan</strong> as a host, earning the <strong>Bolan Award within her first month</strong> and becoming the <strong>first non-celebrity on the cover of Akhbar-e-Jahan</strong>.</p>
+        <p>A <strong>Master's graduate in English</strong>, she taught at the <strong>Convent of Jesus and Mary, Murree</strong> — where her students included <strong>Benazir Bhutto</strong>. She created and hosted a nationwide <strong>School Broadcast Program on Radio Pakistan</strong>, and later contributed award-winning writing to the <strong>Saudi Gazette</strong>.</p>
+        <p>A certified herbalist and devoted mother of five, she transformed a lifetime of knowledge into <strong>Mahira's Herbal World</strong>.</p>
+        <div class="checks">
+          <div class="check">Certified Herbalist</div>
+          <div class="check">PTV Broadcaster &amp; Bolan Award Winner</div>
+          <div class="check">Educator — Convent of Jesus &amp; Mary</div>
+          <div class="check">100% Natural, Chemical-Free Products</div>
+        </div>
+        <a href="#" class="btn btn-primary">Chat with Mahira on WhatsApp →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO BANNER -->
+<div class="promo-wrap" style="background:#fff">
+  <div class="container">
+    <div class="promo">
+      <div>
+        <div class="promo-label">Special Offer</div>
+        <h2>🚚 Free Delivery on Orders Above Rs. 8,000</h2>
+        <p>Shop our full herbal collection — no code needed. Deliver anywhere in Pakistan.</p>
+      </div>
+      <a href="#" class="btn btn-white btn-lg">Shop Now →</a>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="section" style="background:#faf7f2">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">Customer Reviews</span>
+      <h2 class="sec-title">What Our Customers Say</h2>
+      <p class="sec-desc">Real people. Real results. Real trust.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Sehat-e-Maidah has completely changed my digestive health. I suffered from acidity for years and this gave me relief within a week. Absolutely amazing!"</p>
+        <div class="testi-author"><div class="testi-avatar">👤</div><div><strong>Sana K.</strong><span>Lahore</span></div></div>
+        <span class="testi-product">🏷 Sehat-e-Maidah</span>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"The Facial Glow mask has made my skin visibly brighter and smoother. I've tried so many products — this one is genuinely natural and it actually works!"</p>
+        <div class="testi-author"><div class="testi-avatar">👤</div><div><strong>Ayesha R.</strong><span>Karachi</span></div></div>
+        <span class="testi-product">🏷 Facial Glow</span>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"My father has diabetes and Gluco Fit has been a great natural support. We've seen consistent improvement in his sugar levels. Highly recommend!"</p>
+        <div class="testi-author"><div class="testi-avatar">👤</div><div><strong>Usman A.</strong><span>Islamabad</span></div></div>
+        <span class="testi-product">🏷 Gluco Fit</span>
+      </div>
+    </div>
+    <div class="slider-wrap">
+      <div class="sl-btn">◀</div>
+      <div class="sl-dots"><div class="sl-dot on"></div><div class="sl-dot"></div></div>
+      <div class="sl-btn">▶</div>
+    </div>
+    <div class="sec-cta"><a href="#" class="btn btn-outline">Read All Reviews →</a></div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="section" style="background:#fff">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">Wellness Blog</span>
+      <h2 class="sec-title">Herbal Tips &amp; Insights</h2>
+      <p class="sec-desc">Educating you on the power of nature, one article at a time.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card"><div class="blog-img">🍃</div><div class="blog-body"><div class="blog-meta"><span>📅 Coming Soon</span><span>🏷 Digestive Health</span></div><div class="blog-title">5 Natural Ways to Improve Your Digestion</div><p class="blog-exc">Struggling with bloating or acidity? Discover 5 simple herbal remedies that support a healthy gut every day.</p><span class="blog-link">Coming Soon ⏳</span></div></div>
+      <div class="blog-card"><div class="blog-img">💚</div><div class="blog-body"><div class="blog-meta"><span>📅 Coming Soon</span><span>🏷 Wellness</span></div><div class="blog-title">What is Gluco Fit and How Does It Support Blood Sugar?</div><p class="blog-exc">Managing blood sugar naturally is possible. Learn how our Gluco Fit formula supports healthy glucose levels.</p><span class="blog-link">Coming Soon ⏳</span></div></div>
+      <div class="blog-card"><div class="blog-img">✨</div><div class="blog-body"><div class="blog-meta"><span>📅 Coming Soon</span><span>🏷 Skincare</span></div><div class="blog-title">The Benefits of a Herbal Skincare Routine</div><p class="blog-exc">Natural is always better for your skin. Find out why herbal masks and toners outperform chemical alternatives.</p><span class="blog-link">Coming Soon ⏳</span></div></div>
+    </div>
+    <div class="sec-cta"><a href="#" class="btn btn-outline btn-lg">Read All Articles →</a></div>
+  </div>
+</section>
+
+<!-- INSTAGRAM + YOUTUBE -->
+<section class="section" style="background:#faf7f2">
+  <div class="container">
+    <div class="social-grid">
+      <div>
+        <span class="eyebrow">📸 Instagram</span>
+        <h2 class="sec-title" style="text-align:left;margin-top:8px">Follow Our Journey</h2>
+        <p>See our latest products, tips &amp; customer stories on Instagram.</p>
+        <a href="https://instagram.com/mahiras.herbalworld" class="btn btn-sm" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;border:none;margin-bottom:16px">📸 @mahiras.herbalworld</a>
+        <div class="insta-grid">
+          <div class="insta-box">📸</div><div class="insta-box">📸</div><div class="insta-box">📸</div>
+          <div class="insta-box">📸</div><div class="insta-box">📸</div><div class="insta-box">📸</div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">▶️ YouTube</span>
+        <h2 class="sec-title" style="text-align:left;margin-top:8px">Watch &amp; Learn</h2>
+        <p>Product guides, herbal tips &amp; wellness routines on our channel.</p>
+        <a href="https://www.youtube.com/channel/UCj8jef5Fbfln4IgUBrMLFPQ" class="btn btn-sm" style="background:#ff0000;color:#fff;border:none;margin-bottom:16px">▶️ Visit Our Channel</a>
+        <div class="yt-embed">
+          <iframe width="100%" height="260" src="https://www.youtube.com/embed?listType=user_uploads&list=UCj8jef5Fbfln4IgUBrMLFPQ" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <h2>Ready to Experience the Power of Nature?</h2>
+        <p>Browse our full collection or reach out on WhatsApp to find the right product for you.</p>
+      </div>
+      <div class="cta-btns">
+        <a href="#" class="btn btn-primary btn-lg">🛍 Browse All Products</a>
+        <a href="https://wa.me/923008238581" class="btn btn-whatsapp btn-lg">💬 Get Advice on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="container">
+    <div class="nl-inner">
+      <div><h3>Get Herbal Wellness Tips in Your Inbox</h3><p>Join our community for herbal remedies, wellness tips &amp; exclusive offers.</p></div>
+      <div class="nl-form">
+        <div class="nl-field">
+          <input type="email" placeholder="Enter your email address">
+          <button class="btn btn-primary">✉️ Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <span class="footer-brand-name">Mahira's Herbal World</span>
+          <span class="footer-brand-tag">Providing You The Glory of Nature</span>
+          <p class="footer-about-text">We craft natural herbal wellness and personal care products using time-honoured herbal formulas — pure, trusted, and effective.</p>
+          <div class="footer-socials">
+            <div class="soc-icon">📸</div>
+            <div class="soc-icon">👤</div>
+            <div class="soc-icon">▶️</div>
+            <div class="soc-icon">💬</div>
+          </div>
+        </div>
+        <div>
+          <div class="f-col-title">Quick Links</div>
+          <div class="f-links">
+            <a href="#">Home</a><a href="#">Shop</a><a href="#">About Us</a>
+            <a href="#">Wellness Blog</a><a href="#">Reviews</a><a href="#">FAQ</a><a href="#">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="f-col-title">Our Products</div>
+          <div class="f-links">
+            <a href="#">Skincare</a><a href="#">Haircare</a>
+            <a href="#">Wellness</a><a href="#">Herbal Medicines</a>
+            <a href="#">View All Products</a>
+          </div>
+        </div>
+        <div>
+          <div class="f-col-title">Get in Touch</div>
+          <ul class="f-contact">
+            <li><span class="f-contact-icon">💬</span> +92 300 8238581</li>
+            <li><span class="f-contact-icon">📸</span> @mahiras.herbalworld</li>
+            <li><span class="f-contact-icon">👤</span> @hworld1930</li>
+            <li><span class="f-contact-icon">▶️</span> YouTube Channel</li>
+          </ul>
+          <a href="https://wa.me/923008238581" class="btn btn-whatsapp btn-sm">💬 Chat to Order</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p class="footer-copy">© 2025 <strong style="color:rgba(255,255,255,0.55)">Mahira's Herbal World</strong>. All rights reserved.</p>
+        <p class="footer-note">🌿 100% Natural &nbsp;•&nbsp; 🛡️ Trusted Quality &nbsp;•&nbsp; 🚚 Nationwide Delivery</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<div class="float-wa">💬</div>
+
+</body>
+</html>

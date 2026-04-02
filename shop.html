@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shop — Mahira's Herbal World</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#faf7f2;color:#1a1a1a}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+/* HEADER */
+header{background:#fff;border-bottom:1px solid #eee;padding:14px 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.logo img{height:48px;width:auto}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1b5e20}
+.logo-sub{font-size:0.6rem;color:#888;letter-spacing:0.1em;text-transform:uppercase;display:block}
+nav a{text-decoration:none;color:#444;font-size:0.88rem;font-weight:500;margin-left:28px}
+nav a:hover{color:#2d7d32}
+.btn-order{background:#2d7d32;color:#fff;padding:9px 22px;border-radius:8px;font-weight:700;font-size:0.85rem;text-decoration:none;margin-left:28px}
+/* ANNOUNCEMENT */
+.announce{background:#2d7d32;color:#fff;text-align:center;padding:9px;font-size:0.82rem;font-weight:600}
+/* PAGE HERO */
+.page-hero{background:linear-gradient(135deg,#1a3a1a,#2d7d32);color:#fff;padding:60px 0 50px;text-align:center}
+.eyebrow{font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:#a5d6a7;font-weight:700;display:block;margin-bottom:12px}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;margin-bottom:14px}
+.page-hero p{color:rgba(255,255,255,0.75);font-size:1rem}
+/* CATEGORY NAV */
+.cat-nav{background:#fff;border-bottom:1px solid #eee;padding:0;position:sticky;top:73px;z-index:90}
+.cat-nav-inner{display:flex;gap:0;overflow-x:auto;padding:0 24px}
+.cat-pill{display:flex;align-items:center;gap:8px;padding:16px 24px;font-size:0.85rem;font-weight:600;color:#666;text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap;transition:all 0.2s}
+.cat-pill:hover,.cat-pill.active{color:#2d7d32;border-bottom-color:#2d7d32}
+.cat-count{background:#f0f0f0;color:#666;border-radius:999px;padding:2px 8px;font-size:0.72rem;font-weight:700}
+/* SECTIONS */
+.shop-section{padding:60px 0}
+.shop-section:nth-child(even){background:#fff}
+.section-header{display:flex;align-items:center;gap:16px;margin-bottom:36px;padding-bottom:20px;border-bottom:2px solid #f0ebe0}
+.section-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.section-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#1a1a1a}
+.section-count{font-size:0.82rem;color:#888;font-weight:500}
+/* PRODUCT GRID */
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:1100px){.products-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.products-grid{grid-template-columns:repeat(2,1fr)}}
+/* PRODUCT CARD */
+.product-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid #f0ebe0;transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,0.1)}
+.product-card__img{width:100%;aspect-ratio:1;object-fit:cover;background:#f8f5f0;display:block}
+.product-card__img-placeholder{width:100%;aspect-ratio:1;background:linear-gradient(135deg,#f0ebe0,#e8f5e9);display:flex;align-items:center;justify-content:center;font-size:3rem}
+.product-card__body{padding:16px;flex:1;display:flex;flex-direction:column}
+.product-card__cat{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#888;margin-bottom:6px}
+.product-card__name{font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.3}
+.product-card__desc{font-size:0.8rem;color:#666;line-height:1.55;margin-bottom:14px;flex:1}
+.btn-wa{display:flex;align-items:center;justify-content:center;gap:6px;background:#25d366;color:#fff;padding:9px 14px;border-radius:8px;font-size:0.8rem;font-weight:700;text-decoration:none;transition:background 0.2s}
+.btn-wa:hover{background:#20b858}
+/* FOOTER */
+footer{background:#1a2e1a;color:rgba(255,255,255,0.7);padding:40px 0;text-align:center;font-size:0.85rem;margin-top:60px}
+footer strong{color:#a5d6a7}
+</style>
+</head>
+<body>
+
+<div class="announce">🚚 Free delivery on orders above Rs. 8,000 &nbsp;|&nbsp; 💬 Order via WhatsApp: +92 300 8238581</div>
+
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo">
+        <img src="./images/logo.png" alt="Mahira's Herbal World" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div style="display:none">
+          <div class="logo-text">Mahira's Herbal World</div>
+          <span class="logo-sub">Providing You The Glory of Nature</span>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html" style="color:#2d7d32;font-weight:700">Shop</a>
+        <a href="about.html">About</a>
+        <a href="#" class="btn-order">Order Now</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Our Collection</span>
+    <h1>Shop All Products</h1>
+    <p>34 herbal products across 4 categories — all natural, chemical-free &amp; crafted with care</p>
+  </div>
+</div>
+
+<nav class="cat-nav">
+  <div class="cat-nav-inner">
+    <a href="#skincare" class="cat-pill active"><i class="fas fa-spa"></i> Skincare <span class="cat-count">9</span></a>
+    <a href="#haircare" class="cat-pill"><i class="fas fa-wind"></i> Haircare <span class="cat-count">2</span></a>
+    <a href="#wellness" class="cat-pill"><i class="fas fa-heartbeat"></i> Wellness <span class="cat-count">6</span></a>
+    <a href="#herbal-medicines" class="cat-pill"><i class="fas fa-mortar-pestle"></i> Herbal Medicines <span class="cat-count">17</span></a>
+  </div>
+</nav>
+
+<section class="shop-section" id="skincare">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fce4ec;color:#e91e8c"><i class="fas fa-spa"></i></div>
+      <div>
+        <div class="section-title">Skincare</div>
+        <div class="section-count">9 Products</div>
+      </div>
+    </div>
+    <div class="products-grid" id="skincare-grid"></div>
+  </div>
+</section>
+
+<section class="shop-section" id="haircare">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f5e9;color:#2d7d32"><i class="fas fa-wind"></i></div>
+      <div>
+        <div class="section-title">Haircare</div>
+        <div class="section-count">2 Products</div>
+      </div>
+    </div>
+    <div class="products-grid" id="haircare-grid"></div>
+  </div>
+</section>
+
+<section class="shop-section" id="wellness">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e3f2fd;color:#1976d2"><i class="fas fa-heartbeat"></i></div>
+      <div>
+        <div class="section-title">Wellness</div>
+        <div class="section-count">6 Products</div>
+      </div>
+    </div>
+    <div class="products-grid" id="wellness-grid"></div>
+  </div>
+</section>
+
+<section class="shop-section" id="herbal-medicines">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon" style="background:#efebe9;color:#5d4037"><i class="fas fa-mortar-pestle"></i></div>
+      <div>
+        <div class="section-title">Herbal Medicines</div>
+        <div class="section-count">17 Products</div>
+      </div>
+    </div>
+    <div class="products-grid" id="herbal-grid"></div>
+  </div>
+</section>
+
+<footer>
+  <strong>Mahira's Herbal World</strong> — Providing You The Glory of Nature<br>
+  <span style="font-size:0.78rem;margin-top:8px;display:block">© 2025 Mahira's Herbal World. All rights reserved.</span>
+</footer>
+
+<script>
+const WA = 'https://wa.me/923008238581?text=Hi!%20I%20want%20to%20order%20';
+const products = {
+  skincare: [
+    {name:'Facial Glow', img:'facial-glow.jpg', desc:'All-natural exfoliating mask that unclogs pores, removes dead skin cells and delivers visibly plump, radiant, ageless skin — every single use.'},
+    {name:'Rose Extract', img:'rose-extract.jpg', desc:'Organic rose tonic that works as a toner, setting spray, sunscreen and aftershave all in one — pure sensorial freshness in every spritz.'},
+    {name:'Hand & Feet Balm', img:'hand-feet-balm.jpg', desc:'Intensely nourishing herbal balm that repairs cracked heels, softens rough hands and restores silky, supple skin overnight.'},
+    {name:'Eventone', img:'eventone.jpg', desc:'Gently balances uneven skin tone and fades discolouration for a naturally uniform, healthy and luminous complexion.'},
+    {name:'Lip Therapy', img:'lip-therapy.jpg', desc:'Rich herbal balm that heals chapped lips, locks in deep moisture and leaves them visibly fuller, softer and perfectly nourished.'},
+    {name:'Luscious Lashes', img:'luscious-lashes.jpg', desc:'Herbal lash serum crafted to thicken, lengthen and strengthen lashes from root to tip — naturally, without harsh chemicals.'},
+    {name:'Brow Fix', img:'brow-fix.jpg', desc:'Stimulates dormant brow follicles to restore fullness and definition — naturally thicker, bolder brows without threading or tinting.'},
+    {name:'Under Eye Serum', img:'under-eye-serum.jpg', desc:'Targets dark circles, puffiness and fine lines under the eyes for a visibly rested, bright and youthful appearance.'},
+    {name:'Eczema Relief', img:'eczema-relief.jpg', desc:'Soothing herbal formula that calms inflammation, stops the itch and gently restores the skin\'s natural moisture barrier.'},
+  ],
+  haircare: [
+    {name:'Lock Lustre Hair Oil', img:'lock-lustre-hair-oil.jpg', desc:'A rich blend of six powerful herbal oils that nourishes the scalp, reduces hair fall, stimulates growth and leaves hair thick, shiny and deeply conditioned.'},
+    {name:'Anti Hair Fall Serum', img:'anti-hair-fall-serum.jpg', desc:'Strengthens each strand from the follicle, dramatically reduces breakage and supports visibly thicker, fuller, healthier hair growth.'},
+  ],
+  wellness: [
+    {name:'Pain Relief Oil', img:'pain-relief-oil.jpg', desc:'Potent, all-natural oil that penetrates deep to relieve joint pain, muscle aches, sprains, frozen shoulder and inflammation — zero chemicals.'},
+    {name:'Pro-Vision', img:'pro-vision.jpg', desc:'Naturally purifies blood and supports long-term eye health — sharper vision, reduced strain and improved eye function with regular use.'},
+    {name:'Herbal Eye Drops', img:'herbal-eye-drops.jpg', desc:'Gently soothes dryness, redness and digital eye strain with a pure, preservative-free herbal formula safe for daily use.'},
+    {name:'Power Panjeeri', img:'power-panjeeri.jpg', desc:'A time-honoured herbal blend packed with nutrients to build immunity, strength and sustained vitality — exactly what your body needs.'},
+    {name:'Ajwa Paste', img:'ajwa-paste.jpg', desc:'Crafted from blessed Ajwa dates, this heart-supportive paste strengthens cardiovascular health and fortifies natural immunity from within.'},
+    {name:'Moringa Powder', img:'moringa-powder.jpg', desc:'Nature\'s most nutrient-dense superfood — a daily dose of energy, immunity, detox and whole-body nourishment in one pure powder.'},
+  ],
+  herbal: [
+    {name:'Sehat-e-Maydah', img:'sehat-e-maydah.jpg', desc:'Restores complete digestive harmony — relieves acidity, bloating, constipation and heartburn with a precise blend of five powerful herbs.'},
+    {name:'Herbal Ease', img:'herbal-ease.jpg', desc:'A natural, gentle formula that delivers lasting relief from piles, chronic constipation and persistent digestive discomfort.'},
+    {name:'Gluco Fit', img:'gluco-fit.jpg', desc:'Supports healthy blood sugar regulation and helps manage diabetes naturally — effective, safe and free from harsh synthetic compounds.'},
+    {name:'Weightgone', img:'weightgone.jpg', desc:'A targeted herbal formula that boosts metabolism, breaks down stubborn fat and supports healthy, sustained weight loss from within.'},
+    {name:'Slimming Water', img:'slimming-water.jpg', desc:'A cumin-based herbal detox drink that cleanses the digestive system, curbs appetite and accelerates natural fat loss.'},
+    {name:'Vytaliv', img:'vytaliv.jpg', desc:'A powerful herbal detox that purifies the liver, reduces fatty deposits and restores optimal liver function for lasting wellness.'},
+    {name:'Dental Cure', img:'dental-cure.jpg', desc:'Complete overnight dental treatment — strengthens enamel, heals sensitivity, prevents cavities and protects gums while you sleep.'},
+    {name:'Chamakdar', img:'chamakdar.jpg', desc:'Herbal teeth-whitening powder that polishes enamel, eliminates bacteria and gives you visibly brighter, cleaner teeth naturally.'},
+    {name:"Zar'ooni", img:'zarooni.jpg', desc:'A targeted herbal formula that cleanses and rejuvenates the kidneys, flushing toxins and restoring their natural, healthy function.'},
+    {name:'Cough Heal', img:'cough-heal.jpg', desc:'Chemical-free cough relief that breaks down phlegm, clears congestion and soothes both dry and wet cough — safe for adults and children.'},
+    {name:'Energize Herbal Tea', img:'herbal-tea.jpg', desc:'A cleansing herbal tea blend that energises, detoxifies and nourishes from the inside out — your daily ritual for natural vitality.'},
+    {name:'MindPro', img:'mind-pro.jpg', desc:'Sharpens memory, clears mental fog and restores cognitive vitality with a potent blend of brain-nourishing herbs — taken nightly for best results.'},
+    {name:'Ashwagandha', img:'ashwagandha.jpg', desc:'Revered for centuries — naturally calms anxiety, lowers cortisol and restores physical and mental resilience when you need it most.'},
+    {name:'Aqseer-e-Qalb', img:'aqseer-e-qalb.jpg', desc:'A master cardiac tonic that strengthens the heart, improves circulation and supports long-term cardiovascular health — naturally and gently.'},
+    {name:'Seeds Mix', img:'seeds-mix.jpg', desc:'A powerhouse blend of healing seeds delivering concentrated nutrition, strength and whole-body wellness in every serving.'},
+    {name:'Burn Cure', img:'burn-cure.jpg', desc:'A natural paste of beeswax, aloe vera and barley that draws out heat, soothes pain and visibly accelerates burn healing.'},
+    {name:'Feminity', img:'feminity.jpg', desc:'A gentle yet powerful herbal formula crafted specifically for women\'s intimate health, hormonal balance and complete feminine wellness.'},
+  ]
+};
+
+function buildGrid(id, items, catLabel) {
+  const grid = document.getElementById(id);
+  items.forEach(p => {
+    const imgPath = './images/products/' + p.img;
+    grid.innerHTML += `
+      <div class="product-card">
+        <img class="product-card__img" src="${imgPath}" alt="${p.name}"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="product-card__img-placeholder" style="display:none">🌿</div>
+        <div class="product-card__body">
+          <div class="product-card__cat">${catLabel}</div>
+          <div class="product-card__name">${p.name}</div>
+          <p class="product-card__desc">${p.desc}</p>
+          <a href="${WA}${encodeURIComponent(p.name)}" target="_blank" class="btn-wa">
+            <i class="fab fa-whatsapp"></i> Order on WhatsApp
+          </a>
+        </div>
+      </div>`;
+  });
+}
+buildGrid('skincare-grid', products.skincare, 'Skincare');
+buildGrid('haircare-grid', products.haircare, 'Haircare');
+buildGrid('wellness-grid', products.wellness, 'Wellness');
+buildGrid('herbal-grid', products.herbal, 'Herbal Medicines');
+</script>
+</body>
+</html>
