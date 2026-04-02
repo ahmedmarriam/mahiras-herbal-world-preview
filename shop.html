@@ -11,9 +11,9 @@
 body{font-family:'Inter',sans-serif;background:#faf7f2;color:#1a1a1a}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 /* HEADER */
-header{background:#fff;border-bottom:1px solid #eee;padding:14px 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+header{background:#fff;border-bottom:1px solid #eee;padding:14px 0;position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
-.logo img{height:48px;width:auto}
+.logo img{height:52px;width:auto;mix-blend-mode:multiply}
 .logo-text{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1b5e20}
 .logo-sub{font-size:0.6rem;color:#888;letter-spacing:0.1em;text-transform:uppercase;display:block}
 nav a{text-decoration:none;color:#444;font-size:0.88rem;font-weight:500;margin-left:28px}
@@ -52,8 +52,44 @@ nav a:hover{color:#2d7d32}
 .product-card__cat{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#888;margin-bottom:6px}
 .product-card__name{font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.3}
 .product-card__desc{font-size:0.8rem;color:#666;line-height:1.55;margin-bottom:14px;flex:1}
+.card-actions{display:flex;gap:8px;flex-direction:column}
 .btn-wa{display:flex;align-items:center;justify-content:center;gap:6px;background:#25d366;color:#fff;padding:9px 14px;border-radius:8px;font-size:0.8rem;font-weight:700;text-decoration:none;transition:background 0.2s}
 .btn-wa:hover{background:#20b858}
+.btn-details{display:flex;align-items:center;justify-content:center;gap:6px;background:#f0f8f0;color:#2d7d32;padding:8px 14px;border-radius:8px;font-size:0.78rem;font-weight:600;border:1px solid #c8e6c9;cursor:pointer;transition:all 0.2s}
+.btn-details:hover{background:#e8f5e9;border-color:#2d7d32}
+
+/* ─── MODAL ─── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:20px;max-width:720px;width:100%;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,0.2)}
+.modal-header{display:flex;align-items:flex-start;gap:16px;padding:24px 28px 20px;border-bottom:1px solid #f0ebe0;flex-shrink:0}
+.modal-img{width:80px;height:80px;border-radius:12px;object-fit:cover;flex-shrink:0;background:#f0ebe0}
+.modal-img-placeholder{width:80px;height:80px;border-radius:12px;background:linear-gradient(135deg,#e8f5e9,#f0ebe0);display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0}
+.modal-title-block{flex:1}
+.modal-cat{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#2d7d32;margin-bottom:4px}
+.modal-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#1a1a1a;margin-bottom:4px;line-height:1.2}
+.modal-tagline{font-size:0.88rem;color:#666;font-style:italic}
+.modal-close{background:none;border:none;cursor:pointer;color:#999;font-size:1.4rem;padding:4px;flex-shrink:0;line-height:1}
+.modal-close:hover{color:#1a1a1a}
+.modal-body{overflow-y:auto;padding:24px 28px 28px;flex:1}
+.modal-body p{font-size:0.9rem;color:#444;line-height:1.7;margin-bottom:12px}
+.modal-body h4{font-size:0.85rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#1b5e20;margin:20px 0 10px;display:flex;align-items:center;gap:6px}
+.modal-body ul{list-style:none;margin-bottom:14px}
+.modal-body ul li{font-size:0.88rem;color:#444;line-height:1.6;padding:4px 0 4px 0;display:flex;align-items:flex-start;gap:6px}
+.modal-body ul li::before{content:'✔';color:#2d7d32;font-weight:700;flex-shrink:0;margin-top:1px}
+.modal-body .perfect-for{background:#f0f8f0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.modal-body .perfect-for p{margin:0;font-size:0.85rem;color:#2d7d32;font-weight:600}
+.modal-body .perfect-for ul{margin:6px 0 0}
+.modal-body .perfect-for ul li::before{color:#1b5e20}
+.modal-body .how-to{background:#fffbf4;border-left:3px solid #2d7d32;padding:14px 16px;border-radius:0 10px 10px 0;margin-bottom:14px}
+.modal-body .how-to p{margin:0;font-size:0.88rem;color:#333}
+.modal-body .ingredients{font-size:0.78rem;color:#888;font-style:italic;margin-bottom:6px}
+.modal-body .closing{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#1b5e20;margin:18px 0 6px;text-align:center;line-height:1.4}
+.modal-body .intro-bold{font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:8px;font-family:'Playfair Display',serif;line-height:1.4}
+.modal-footer{padding:16px 28px 20px;border-top:1px solid #f0ebe0;flex-shrink:0}
+.modal-footer a{display:flex;align-items:center;justify-content:center;gap:8px;background:#25d366;color:#fff;padding:13px 24px;border-radius:10px;font-size:0.92rem;font-weight:700;text-decoration:none;transition:background 0.2s}
+.modal-footer a:hover{background:#20b858}
+
 /* FOOTER */
 footer{background:#1a2e1a;color:rgba(255,255,255,0.7);padding:40px 0;text-align:center;font-size:0.85rem;margin-top:60px}
 footer strong{color:#a5d6a7}
@@ -77,7 +113,7 @@ footer strong{color:#a5d6a7}
         <a href="index.html">Home</a>
         <a href="shop.html" style="color:#2d7d32;font-weight:700">Shop</a>
         <a href="about.html">About</a>
-        <a href="#" class="btn-order">Order Now</a>
+        <a href="https://wa.me/923008238581?text=Hi!%20I%20want%20to%20place%20an%20order." target="_blank" class="btn-order">Order Now</a>
       </nav>
     </div>
   </div>
@@ -152,82 +188,696 @@ footer strong{color:#a5d6a7}
   </div>
 </section>
 
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOnBg(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <img id="modal-img" class="modal-img" src="" alt="">
+      <div class="modal-title-block">
+        <div class="modal-cat" id="modal-cat"></div>
+        <div class="modal-name" id="modal-name"></div>
+        <div class="modal-tagline" id="modal-tagline"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer">
+      <a id="modal-wa-link" href="#" target="_blank"><i class="fab fa-whatsapp"></i> Order This Product on WhatsApp</a>
+    </div>
+  </div>
+</div>
+
 <footer>
   <strong>Mahira's Herbal World</strong> — Providing You The Glory of Nature<br>
   <span style="font-size:0.78rem;margin-top:8px;display:block">© 2025 Mahira's Herbal World. All rights reserved.</span>
 </footer>
 
 <script>
-const WA = 'https://wa.me/923008238581?text=Hi!%20I%20want%20to%20order%20';
+const WA_BASE = 'https://wa.me/923008238581?text=Hi!%20I%20want%20to%20order%20';
+
+function d(html){ return html; }
+
 const products = {
   skincare: [
-    {name:'Facial Glow', img:'facial-glow.jpg', desc:'All-natural exfoliating mask that unclogs pores, removes dead skin cells and delivers visibly plump, radiant, ageless skin — every single use.'},
-    {name:'Rose Extract', img:'rose-extract.jpg', desc:'Organic rose tonic that works as a toner, setting spray, sunscreen and aftershave all in one — pure sensorial freshness in every spritz.'},
-    {name:'Hand & Feet Balm', img:'hand-feet-balm.jpg', desc:'Intensely nourishing herbal balm that repairs cracked heels, softens rough hands and restores silky, supple skin overnight.'},
-    {name:'Eventone', img:'eventone.jpg', desc:'Gently balances uneven skin tone and fades discolouration for a naturally uniform, healthy and luminous complexion.'},
-    {name:'Lip Therapy', img:'lip-therapy.jpg', desc:'Rich herbal balm that heals chapped lips, locks in deep moisture and leaves them visibly fuller, softer and perfectly nourished.'},
-    {name:'Luscious Lashes', img:'luscious-lashes.jpg', desc:'Herbal lash serum crafted to thicken, lengthen and strengthen lashes from root to tip — naturally, without harsh chemicals.'},
-    {name:'Brow Fix', img:'brow-fix.jpg', desc:'Stimulates dormant brow follicles to restore fullness and definition — naturally thicker, bolder brows without threading or tinting.'},
-    {name:'Under Eye Serum', img:'under-eye-serum.jpg', desc:'Targets dark circles, puffiness and fine lines under the eyes for a visibly rested, bright and youthful appearance.'},
-    {name:'Eczema Relief', img:'eczema-relief.jpg', desc:'Soothing herbal formula that calms inflammation, stops the itch and gently restores the skin\'s natural moisture barrier.'},
+    {
+      name: 'Facial Glow',
+      img: 'facial-glow.jpg',
+      desc: 'All-natural exfoliating mask that unclogs pores, removes dead skin cells and delivers visibly plump, radiant, ageless skin — every single use.',
+      tagline: 'Your Secret to Radiant, Ageless Skin',
+      full: `
+        <p class="intro-bold">Uncover the skin you were always meant to have.</p>
+        <p>Facial Glow by Mahira's Herbal World is an all-natural exfoliating face mask crafted from rare botanical ingredients — refined over 30 years of herbal expertise. It unclogs pores, dissolves dead skin cells and draws out impurities that everyday cleansers simply can't reach, leaving your skin visibly plump, flawless and glowing from within.</p>
+        <h4>✨ Why Your Skin Needs This</h4>
+        <p>Modern skincare is loaded with chemicals that damage your skin barrier over time. Facial Glow works with your skin's natural renewal process to:</p>
+        <ul><li>Unclog pores deeply and gently</li><li>Remove dead skin cells and impurities</li><li>Treat dull, damaged and uneven skin</li><li>Restore natural radiance and plumpness</li><li>Deliver softer, smoother skin with every use</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>Suitable for all skin types</li><li>No artificial preservatives or additives</li><li>Rooted in 30+ years of herbal formulation</li><li>Works on dry, oily, combination and sensitive skin</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Dull or congested skin</li><li>Uneven skin texture &amp; clogged pores</li><li>Skin that feels tired and lifeless</li><li>Anyone seeking a natural glow without chemicals</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Apply a generous layer to clean, damp skin. Leave on for 15–20 minutes, then rinse with lukewarm water. Use 2–3 times per week for best results. Keep refrigerated.</p></div>
+        <p class="closing">🌟 A Weekly Ritual, Not Just a Mask</p>
+      `
+    },
+    {
+      name: 'Rose Extract',
+      img: 'rose-extract.jpg',
+      desc: 'Organic rose tonic that works as a toner, setting spray, sunscreen and aftershave all in one — pure sensorial freshness in every spritz.',
+      tagline: 'One Bottle. Every Skin Need.',
+      full: `
+        <p class="intro-bold">Your skin's most versatile everyday essential.</p>
+        <p>Mahira's Rose Extract is a pure, organic complexion tonic cold-processed from the finest rose buds. Its fragrance is full-bodied, natural and sensual — but its benefits go far beyond scent. Whether you're toning, refreshing, setting your makeup or soothing after shaving, this one bottle does it all.</p>
+        <h4>✨ Why You'll Love It</h4>
+        <ul><li>Tighten pores and balance skin pH</li><li>Lock in makeup as a setting spray</li><li>Hydrate and refresh skin instantly</li><li>Soothe skin as an aftershave toner</li><li>Add a natural dewy glow any time of day</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% organic rose bud extract</li><li>No alcohol, no chemicals, no synthetic fragrance</li><li>Safe for daily use — morning and night</li><li>Suitable for all skin types including sensitive</li><li>Multi-use: toner, setting spray, sunscreen, aftershave</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Oily or combination skin needing balance</li><li>Post-makeup setting &amp; dry skin hydration</li><li>Sensitive skin prone to irritation</li><li>Anyone wanting a natural fragrance alternative</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Spray directly onto the face and body anytime. Use as a toner after cleansing, a setting spray after makeup, or a refreshing mist throughout the day.</p></div>
+        <p class="closing">🌟 Pure Rose. Pure Results.</p>
+      `
+    },
+    {
+      name: 'Hand & Feet Balm',
+      img: 'hand-feet-balm.jpg',
+      desc: 'Intensely nourishing herbal balm that repairs cracked heels, softens rough hands and restores silky, supple skin overnight.',
+      tagline: 'Deep Repair for Your Most Neglected Skin',
+      full: `
+        <p class="intro-bold">Soft, smooth hands and feet — starting tonight.</p>
+        <p>Mahira's Hand &amp; Feet Balm is a richly nourishing herbal cream formulated to repair cracked heels, soften rough hands and restore the silky-smooth skin that daily life takes away. Made without a single harsh chemical, it absorbs deeply to heal from within — not just on the surface.</p>
+        <h4>✨ Why Your Hands & Feet Need This</h4>
+        <ul><li>Repair deep cracks in heels and dry skin</li><li>Soften rough, calloused hands and feet</li><li>Restore lost moisture and suppleness</li><li>Soothe irritation and redness</li><li>Create a lasting protective barrier against dryness</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>Fast-absorbing — no greasy residue</li><li>Works while you sleep for maximum repair</li><li>Safe for daily use for the whole family</li><li>No artificial fragrances or preservatives</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Cracked heels &amp; rough or calloused hands</li><li>Extremely dry skin &amp; post-housework repair</li><li>Anyone whose hands and feet need serious care</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Apply generously to hands and feet before bed. Massage into the skin until absorbed. For cracked heels, cover with socks overnight for intensive repair. Use daily.</p></div>
+        <p class="closing">🌟 Heal What's Been Ignored</p>
+      `
+    },
+    {
+      name: 'Eventone',
+      img: 'eventone.jpg',
+      desc: 'Gently balances uneven skin tone and fades discolouration for a naturally uniform, healthy and luminous complexion.',
+      tagline: 'Even Skin. Natural Confidence.',
+      full: `
+        <p class="intro-bold">Balance your tone — reveal your natural glow.</p>
+        <p>Eventone by Mahira's Herbal World is a gentle, herbal complexion balancer that works beneath the surface to fade discolouration, even out patchy skin and restore a naturally uniform, luminous tone — without bleaching, burning or harsh chemicals.</p>
+        <h4>✨ Why Your Skin Needs This</h4>
+        <ul><li>Fade dark patches and discolouration</li><li>Even out skin tone naturally and gradually</li><li>Brighten dull areas without irritation</li><li>Restore a natural, healthy complexion</li><li>Give skin a consistent, luminous finish</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>No bleaching agents or harsh acids</li><li>Gentle enough for sensitive skin</li><li>Safe for long-term daily use</li><li>Works gradually for natural, lasting results</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Uneven or patchy skin tone &amp; sun-damaged skin</li><li>Post-acne marks &amp; hormonal pigmentation</li><li>Anyone wanting a more even complexion without chemicals</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Apply to the affected areas as directed. Use consistently for best results — natural formulas work gradually for lasting improvement.</p></div>
+        <p class="closing">🌟 Your Natural Skin, Perfected — Not lighter. Not altered. Just beautifully, evenly you.</p>
+      `
+    },
+    {
+      name: 'Lip Therapy',
+      img: 'lip-therapy.jpg',
+      desc: 'Rich herbal balm that heals chapped lips, locks in deep moisture and leaves them visibly fuller, softer and perfectly nourished.',
+      tagline: 'Deeply Nourished Lips. Every Day.',
+      full: `
+        <p class="intro-bold">Soft, plump lips — naturally.</p>
+        <p>Mahira's Lip Therapy is a rich herbal balm that goes beyond surface-level moisture. It heals chapped, dry and cracked lips from within — locking in deep hydration, restoring natural softness and leaving lips visibly fuller and healthier with every use.</p>
+        <h4>✨ Why Your Lips Need This</h4>
+        <ul><li>Heal cracked and chapped lips gently</li><li>Lock in moisture for all-day hydration</li><li>Restore softness and natural colour</li><li>Leave lips visibly fuller and smoother</li><li>Protect against dryness, wind and sun</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>No petroleum, no artificial colour</li><li>Safe for daily use — day and night</li><li>Works on severely chapped lips</li><li>Light, comfortable texture — not waxy</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Chronically dry or chapped lips</li><li>Lips that peel or crack in cold weather</li><li>Anyone who wants softer, fuller-looking lips</li><li>Everyday lip care for the whole family</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Apply to clean lips as often as needed. For intensive repair, apply a generous layer at night before sleeping.</p></div>
+        <p class="closing">🌟 Because Your Lips Deserve Better — Real healing, from nature.</p>
+      `
+    },
+    {
+      name: 'Luscious Lashes',
+      img: 'luscious-lashes.jpg',
+      desc: 'Herbal lash serum crafted to thicken, lengthen and strengthen lashes from root to tip — naturally, without harsh chemicals.',
+      tagline: 'Fuller Lashes. Naturally Yours.',
+      full: `
+        <p class="intro-bold">The lashes you want — without the extensions.</p>
+        <p>Mahira's Luscious Lashes is a potent herbal serum crafted to thicken, lengthen and strengthen lashes from root to tip. Formulated without harsh chemicals, it nourishes each follicle to stimulate natural growth and prevent breakage — giving you fuller, longer lashes that are entirely your own.</p>
+        <h4>✨ Why You'll Love It</h4>
+        <ul><li>Thicken thin, sparse lashes visibly</li><li>Lengthen lashes from the root</li><li>Strengthen against breakage and fall</li><li>Nourish and condition each lash</li><li>Promote healthy, consistent lash growth</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>No hormones or synthetic growth agents</li><li>Safe for daily use — even for sensitive eyes</li><li>Works on natural lashes without damage</li><li>No side effects — just healthier, fuller lashes</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Thin or sparse lashes &amp; lash loss from makeup</li><li>Anyone wanting naturally fuller lashes</li><li>Those avoiding synthetic beauty treatments</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Apply carefully along the lash line each night before bed using the applicator. Visible results typically appear within 4–6 weeks of regular use.</p></div>
+        <p class="closing">🌟 Real Lashes. Real Results. No extensions. No falsies. Just yours — only better.</p>
+      `
+    },
+    {
+      name: 'Brow Fix',
+      img: 'brow-fix.jpg',
+      desc: 'Stimulates dormant brow follicles to restore fullness and definition — naturally thicker, bolder brows without threading or tinting.',
+      tagline: 'Thicker Brows. Naturally Defined.',
+      full: `
+        <p class="intro-bold">Fuller, bolder brows — no threading required.</p>
+        <p>Mahira's Brow Fix is a targeted herbal serum that stimulates dormant brow follicles to restore fullness, definition and natural thickness. Formulated with powerful botanical extracts, it works where over-plucking, ageing and stress have left brows thin — bringing them back, naturally.</p>
+        <h4>✨ Why Your Brows Need This</h4>
+        <ul><li>Stimulate dormant and inactive follicles</li><li>Restore natural brow fullness and thickness</li><li>Define the brow shape without tinting</li><li>Strengthen existing brow hairs against fall</li><li>Deliver visibly bolder, healthier brows</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>No dyes, tints or synthetic hormones</li><li>Safe for daily use on all skin types</li><li>Works on over-plucked and sparse brows</li><li>No side effects or skin irritation</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Over-plucked or sparse brows</li><li>Brow thinning due to age or stress</li><li>A natural alternative to microblading</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Apply a small amount along the brow line each night. Massage gently for better absorption. Use consistently for 6–8 weeks for visible regrowth.</p></div>
+        <p class="closing">🌟 Your Natural Brows — Restored. Not drawn on. Not tattooed. Grown back — the natural way.</p>
+      `
+    },
+    {
+      name: 'Under Eye Serum',
+      img: 'under-eye-serum.jpg',
+      desc: 'Targets dark circles, puffiness and fine lines under the eyes for a visibly rested, bright and youthful appearance.',
+      tagline: 'Brighter Eyes. Rested Look. Every Morning.',
+      full: `
+        <p class="intro-bold">Wake up looking refreshed — even when you're not.</p>
+        <p>Mahira's Under Eye Serum is a gentle, potent herbal formula that targets the root causes of tired-looking eyes — dark circles, puffiness and fine lines — and visibly reduces all three. Lightweight and fast-absorbing, it works while your skin repairs itself overnight.</p>
+        <h4>✨ Why You'll Love It</h4>
+        <ul><li>Reduce dark circles and discolouration</li><li>Deflate puffiness and morning eye bags</li><li>Soften fine lines around the eye area</li><li>Hydrate and firm the delicate skin beneath</li><li>Deliver a visibly rested, bright-eyed appearance</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>Fragrance-free — safe for the eye area</li><li>Lightweight, non-greasy formula</li><li>Safe for daily use morning and night</li><li>No irritation on sensitive or mature skin</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Chronic dark circles &amp; morning puffiness</li><li>Fine lines and crow's feet</li><li>Anyone who wants a more awake, youthful look</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Apply a small drop under each eye and gently tap (do not rub) into the skin using your ring finger. Use morning and night on clean skin.</p></div>
+        <p class="closing">🌟 Rest it. Restore it. Reveal it.</p>
+      `
+    },
+    {
+      name: 'Eczema Relief',
+      img: 'eczema-relief.jpg',
+      desc: 'Soothing herbal formula that calms inflammation, stops the itch and gently restores the skin\'s natural moisture barrier.',
+      tagline: 'Calm Skin. No Itch. No Chemicals.',
+      full: `
+        <p class="intro-bold">Genuine relief for your most sensitive skin.</p>
+        <p>Mahira's Eczema Relief is a soothing, all-natural herbal formula designed to calm the inflammation, itching and dryness of eczema and sensitive skin conditions — without steroids, without chemicals and without side effects. It works gently to heal the skin barrier and restore lasting comfort.</p>
+        <h4>✨ Why Your Skin Needs This</h4>
+        <ul><li>Calm inflammation and redness rapidly</li><li>Stop the itch-scratch cycle naturally</li><li>Restore the skin's natural moisture barrier</li><li>Heal dry, cracked and irritated patches</li><li>Provide lasting relief — not just temporary numbing</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; steroid-free</li><li>No chemicals, no harsh preservatives</li><li>Safe for babies, children and adults</li><li>Gentle enough for the most sensitive skin</li><li>Treats the cause — not just the symptom</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Eczema and dermatitis flare-ups</li><li>Severely dry or cracked skin</li><li>Chronic itching and skin irritation</li><li>Sensitive skin that reacts to conventional products</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Apply gently to the affected area 2–3 times daily and after bathing. Use consistently — natural formulas build lasting results over time. Safe for continuous use.</p></div>
+        <p class="closing">🌟 Calm Is Possible. Naturally. No steroids. No side effects. Just genuine, lasting relief.</p>
+      `
+    },
   ],
   haircare: [
-    {name:'Lock Lustre Hair Oil', img:'lock-lustre-hair-oil.jpg', desc:'A rich blend of six powerful herbal oils that nourishes the scalp, reduces hair fall, stimulates growth and leaves hair thick, shiny and deeply conditioned.'},
-    {name:'Anti Hair Fall Serum', img:'anti-hair-fall-serum.jpg', desc:'Strengthens each strand from the follicle, dramatically reduces breakage and supports visibly thicker, fuller, healthier hair growth.'},
+    {
+      name: 'Lock Lustre Hair Oil',
+      img: 'lock-lustre-hair-oil.jpg',
+      desc: 'A rich blend of six powerful herbal oils that nourishes the scalp, reduces hair fall, stimulates growth and leaves hair thick, shiny and deeply conditioned.',
+      tagline: 'Restore What Stress & Time Have Taken.',
+      full: `
+        <p class="intro-bold">Give your hair back what it deserves.</p>
+        <p>Lock Lustre Hair Oil by Mahira's Herbal World is a deeply nourishing blend of six therapeutic herbal oils that works while you rest. Massaged into the scalp and roots, it revives dormant follicles, repairs damaged hair, and restores the natural shine, thickness and volume that stress, chemicals and time have quietly stripped away.</p>
+        <h4>✨ Why Your Hair Needs This</h4>
+        <ul><li>Stimulate dormant follicles and new growth</li><li>Reduce hair fall from root to tip</li><li>Repair dry, damaged and brittle hair texture</li><li>Nourish the scalp and eliminate dryness</li><li>Restore natural shine, volume and strength</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>Six-herb therapeutic blend — not a single-oil formula</li><li>Works overnight for deep repair</li><li>No silicones, no mineral oils</li><li>Also calms the nervous system through scalp massage</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Excessive hair fall &amp; dry or brittle hair</li><li>Thinning hair and loss of volume</li><li>Scalp dryness and anyone wanting thick, shiny hair</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Massage into the scalp and roots once or twice a week until fully absorbed. For best results, leave on overnight and wash out in the morning. Use consistently for 4–6 weeks.</p></div>
+        <p class="closing">🌟 Not Just an Oil — A Ritual. Every massage session is as healing for your mind as it is for your hair.</p>
+      `
+    },
+    {
+      name: 'Anti Hair Fall Serum',
+      img: 'anti-hair-fall-serum.jpg',
+      desc: 'Strengthens each strand from the follicle, dramatically reduces breakage and supports visibly thicker, fuller, healthier hair growth.',
+      tagline: 'Stronger Roots. Healthier Hair. Naturally.',
+      full: `
+        <p class="intro-bold">No more hair fall — only stronger, healthier roots.</p>
+        <p>Mahira's Anti Hair Fall Serum is a lightweight, fast-absorbing formula designed to reduce hair fall, strengthen roots and restore natural hair health — without chemicals or side effects. Unlike heavy oils that sit on the surface, this serum works directly at the follicle level from the very first application.</p>
+        <h4>✨ Why You'll Love It</h4>
+        <ul><li>Non-greasy formula — no sticky feeling</li><li>Fast-absorbing — works from the very first use</li><li>Strengthens hair from the roots</li><li>Reduces hair fall noticeably and naturally</li><li>Promotes healthier, fuller-looking hair</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>Steam-distilled formulation</li><li>Safe for regular use with no harmful side effects</li><li>Works with your scalp — not against it</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Hair fall and thinning hair &amp; weak roots</li><li>Post-illness or post-pregnancy hair loss</li><li>Anyone seeking a natural, daily hair care solution</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Apply gently to the scalp and massage for better absorption. Use daily or as needed. Consistent use delivers the strongest results.</p></div>
+        <p class="closing">🌟 From Weak to Strong — Whether used alone or as part of your complete hair care routine, this serum helps your hair regain strength, shine and volume.</p>
+      `
+    },
   ],
   wellness: [
-    {name:'Pain Relief Oil', img:'pain-relief-oil.jpg', desc:'Potent, all-natural oil that penetrates deep to relieve joint pain, muscle aches, sprains, frozen shoulder and inflammation — zero chemicals.'},
-    {name:'Pro-Vision', img:'pro-vision.jpg', desc:'Naturally purifies blood and supports long-term eye health — sharper vision, reduced strain and improved eye function with regular use.'},
-    {name:'Herbal Eye Drops', img:'herbal-eye-drops.jpg', desc:'Gently soothes dryness, redness and digital eye strain with a pure, preservative-free herbal formula safe for daily use.'},
-    {name:'Power Panjeeri', img:'power-panjeeri.jpg', desc:'A time-honoured herbal blend packed with nutrients to build immunity, strength and sustained vitality — exactly what your body needs.'},
-    {name:'Ajwa Paste', img:'ajwa-paste.jpg', desc:'Crafted from blessed Ajwa dates, this heart-supportive paste strengthens cardiovascular health and fortifies natural immunity from within.'},
-    {name:'Moringa Powder', img:'moringa-powder.jpg', desc:'Nature\'s most nutrient-dense superfood — a daily dose of energy, immunity, detox and whole-body nourishment in one pure powder.'},
+    {
+      name: 'Pain Relief Oil',
+      img: 'pain-relief-oil.jpg',
+      desc: 'Potent, all-natural oil that penetrates deep to relieve joint pain, muscle aches, sprains, frozen shoulder and inflammation — zero chemicals.',
+      tagline: 'Move Freely Again. Naturally.',
+      full: `
+        <p class="intro-bold">Deep relief — without a single chemical.</p>
+        <p>Mahira's Pain Relief Oil is a 100% natural therapeutic oil crafted with powerful analgesic and anti-inflammatory herbs that penetrate directly to the source of pain. Unlike chemical gels that numb temporarily, this oil works with your body's natural healing process to relieve pain, reduce inflammation and restore your ability to move freely.</p>
+        <h4>✨ Why Your Body Needs This</h4>
+        <ul><li>Relieve joint pain, stiffness and arthritis</li><li>Ease muscle aches, cramps and sprains</li><li>Treat frozen shoulder and nerve tension</li><li>Reduce swelling and inflammation naturally</li><li>Support recovery from injuries and strain</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>No steroids or synthetic pain blockers</li><li>Safe for regular, long-term use</li><li>No side effects or skin sensitisation</li><li>Works overnight for deep tissue relief</li></ul>
+        <p class="ingredients">Active Ingredients: Sandalwood, Hyssop, Colchicum, Staff Tree</p>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Joint pain, arthritis &amp; frozen shoulder</li><li>Muscle aches, sports injuries &amp; back pain</li><li>Anyone who wants natural, chemical-free pain relief</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Warm a spoon or small cup and dip your fingers into the oil. Massage firmly onto the affected area until absorbed. Place cotton wool over the area and wrap with a soft cloth. Leave on overnight. Repeat daily.</p></div>
+        <p class="closing">🌟 Real Relief. No Side Effects. Pain doesn't have to be a life sentence.</p>
+      `
+    },
+    {
+      name: 'Pro-Vision',
+      img: 'pro-vision.jpg',
+      desc: 'Naturally purifies blood and supports long-term eye health — sharper vision, reduced strain and improved eye function with regular use.',
+      tagline: 'See the World More Clearly — Naturally.',
+      full: `
+        <p class="intro-bold">Sharper vision. Healthier eyes. From the inside out.</p>
+        <p>Mahira's Pro-Vision is a pure, organic herbal supplement formulated to protect and strengthen eye health at a cellular level. Rich in natural compounds that nourish the optic nerve, purify the blood and reduce oxidative stress on the eyes, it supports sharper vision and long-term eye function with consistent daily use.</p>
+        <h4>✨ Why Your Eyes Need This</h4>
+        <ul><li>Sharpen and improve natural vision over time</li><li>Reduce digital eye strain and fatigue</li><li>Purify the blood for better eye nourishment</li><li>Protect the optic nerve from oxidative damage</li><li>Support long-term eye health and function</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural, organic &amp; preservative-free</li><li>Only two powerful herbs — nothing unnecessary</li><li>No side effects or chemical additives</li><li>Safe for long-term daily use</li><li>Works from within — not just surface relief</li></ul>
+        <p class="ingredients">Active Ingredients: Globe Flower, Fennel</p>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Weakening or blurring vision</li><li>Digital eye strain from screens</li><li>Anyone looking for natural eye health support</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Take 1 teaspoon on an empty stomach in the morning. Take another 1 teaspoon at night as the last thing consumed before sleep. Use consistently for a minimum of 2 months. Keep refrigerated.</p></div>
+        <p class="closing">🌟 Your Vision Is Worth Protecting.</p>
+      `
+    },
+    {
+      name: 'Herbal Eye Drops',
+      img: 'herbal-eye-drops.jpg',
+      desc: 'Gently soothes dryness, redness and digital eye strain with a pure, preservative-free herbal formula safe for daily use.',
+      tagline: 'Soothe. Refresh. Restore.',
+      full: `
+        <p class="intro-bold">Instant relief for tired, strained eyes — naturally.</p>
+        <p>Mahira's Herbal Eye Drops are a pure, preservative-free formula that soothes dryness, redness and digital eye strain the moment they're applied. Gentle enough for daily use, they work with your eyes' natural moisture system to refresh, calm and restore comfort — without chemicals or synthetic lubricants.</p>
+        <h4>✨ Why You'll Love It</h4>
+        <ul><li>Soothe dryness and irritation on contact</li><li>Reduce redness caused by screens or dust</li><li>Relieve digital eye strain and fatigue</li><li>Refresh and rehydrate the eyes naturally</li><li>Calm inflammation without chemical side effects</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; preservative-free</li><li>No synthetic lubricants or chemical agents</li><li>Safe for daily use — even for sensitive eyes</li><li>Gentle formula suitable for all ages</li><li>No stinging, no blurring</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Dry or irritated eyes &amp; redness from screens</li><li>Digital eye strain &amp; eye fatigue at work</li><li>Anyone wanting a natural alternative to commercial drops</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Tilt your head back, apply 1–2 drops and blink gently. Use as often as required for comfort. Store in a cool, dry place.</p></div>
+        <p class="closing">🌟 Your Eyes Deserve Natural Care.</p>
+      `
+    },
+    {
+      name: 'Power Panjeeri',
+      img: 'power-panjeeri.jpg',
+      desc: 'A time-honoured herbal blend packed with nutrients to build immunity, strength and sustained vitality — exactly what your body needs.',
+      tagline: 'Natural Energy & Immunity Booster',
+      full: `
+        <p class="intro-bold">Fuel your body the natural way.</p>
+        <p>Power Panjeeri by Mahira's Herbal World is a nutrient-rich, herbal blend crafted to restore strength, boost energy and support overall wellness — without any chemicals or preservatives. Handcrafted with over 30 years of herbal expertise, this powerful formula combines natural ingredients, seeds and herbs to give your body the nourishment it truly needs.</p>
+        <h4>✨ Why Your Body Needs This</h4>
+        <ul><li>Boost energy and stamina naturally</li><li>Strengthen immunity and digestion</li><li>Support recovery and overall health</li><li>Nourish the body with natural nutrition</li><li>Strengthen bones and nerves</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>No preservatives or additives</li><li>Safe for daily use &amp; suitable for all ages</li><li>Rooted in traditional herbal wisdom</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Low energy and fatigue &amp; weak immunity</li><li>Post-illness recovery</li><li>Anyone looking for a natural energy booster</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Consume daily as part of your morning routine. Start with a small serving and increase as your body adjusts.</p></div>
+        <p class="closing">🌟 A Daily Dose of Strength — A tradition trusted for generations, now crafted for your modern lifestyle.</p>
+      `
+    },
+    {
+      name: 'Ajwa Paste',
+      img: 'ajwa-paste.jpg',
+      desc: 'Crafted from blessed Ajwa dates, this heart-supportive paste strengthens cardiovascular health and fortifies natural immunity from within.',
+      tagline: 'The Power of Blessed Dates — Concentrated.',
+      full: `
+        <p class="intro-bold">Heart health and immunity. From nature's most powerful fruit.</p>
+        <p>Mahira's Ajwa Paste is made from blessed Ajwa dates — one of the most revered natural foods in Islamic tradition and modern nutritional science. This concentrated paste delivers the full cardiovascular and immunity-boosting power of Ajwa dates in a form that is easy to consume and absorb daily.</p>
+        <h4>✨ Why Your Body Needs This</h4>
+        <ul><li>Strengthen and protect the heart naturally</li><li>Improve circulation and blood health</li><li>Boost immunity with every daily dose</li><li>Provide natural antioxidant protection</li><li>Support energy and whole-body wellness</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>Made from authentic, premium Ajwa dates</li><li>100% natural &amp; chemical-free</li><li>No artificial sweeteners or preservatives</li><li>Concentrated for maximum potency</li><li>Rooted in both tradition and nutrition science</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Cardiovascular health &amp; weak immunity</li><li>Daily antioxidant support &amp; post-illness recovery</li><li>Anyone who values natural, faith-rooted wellness</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Take 1 teaspoon daily, ideally in the morning on an empty stomach or as part of your breakfast. Consistent daily use delivers the strongest results.</p></div>
+        <p class="closing">🌟 Blessed by Nature. Backed by Tradition.</p>
+      `
+    },
+    {
+      name: 'Moringa Powder',
+      img: 'moringa-powder.jpg',
+      desc: 'Nature\'s most nutrient-dense superfood — a daily dose of energy, immunity, detox and whole-body nourishment in one pure powder.',
+      tagline: 'Nature\'s Most Complete Superfood.',
+      full: `
+        <p class="intro-bold">One spoon. A world of nourishment.</p>
+        <p>Mahira's Moringa Powder is sourced from the finest moringa leaves and processed without heat to preserve maximum nutritional potency. Packed with vitamins, minerals, antioxidants and amino acids, it delivers whole-body nourishment in a single daily dose — pure, clean and completely natural.</p>
+        <h4>✨ Why Your Body Needs This</h4>
+        <ul><li>Boost energy and fight chronic fatigue</li><li>Strengthen immunity from the inside out</li><li>Detoxify and support liver function</li><li>Provide anti-inflammatory protection</li><li>Deliver concentrated vitamins and minerals naturally</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% pure moringa — no fillers or additives</li><li>Cold-processed to preserve nutritional value</li><li>Chemical-free and pesticide-free</li><li>Safe for daily long-term use</li><li>Suitable for adults and children</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Low energy &amp; weak immunity</li><li>Nutritional deficiency &amp; daily detox</li><li>Anyone wanting a simple, natural superfood habit</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Mix 1 teaspoon into water, juice, a smoothie or food once daily. Can be taken in the morning or added to any meal. Use consistently.</p></div>
+        <p class="closing">🌟 One Ingredient. Complete Nourishment. The most nutrient-dense plant on earth.</p>
+      `
+    },
   ],
   herbal: [
-    {name:'Sehat-e-Maydah', img:'sehat-e-maydah.jpg', desc:'Restores complete digestive harmony — relieves acidity, bloating, constipation and heartburn with a precise blend of five powerful herbs.'},
-    {name:'Herbal Ease', img:'herbal-ease.jpg', desc:'A natural, gentle formula that delivers lasting relief from piles, chronic constipation and persistent digestive discomfort.'},
-    {name:'Gluco Fit', img:'gluco-fit.jpg', desc:'Supports healthy blood sugar regulation and helps manage diabetes naturally — effective, safe and free from harsh synthetic compounds.'},
-    {name:'Weightgone', img:'weightgone.jpg', desc:'A targeted herbal formula that boosts metabolism, breaks down stubborn fat and supports healthy, sustained weight loss from within.'},
-    {name:'Slimming Water', img:'slimming-water.jpg', desc:'A cumin-based herbal detox drink that cleanses the digestive system, curbs appetite and accelerates natural fat loss.'},
-    {name:'Vytaliv', img:'vytaliv.jpg', desc:'A powerful herbal detox that purifies the liver, reduces fatty deposits and restores optimal liver function for lasting wellness.'},
-    {name:'Dental Cure', img:'dental-cure.jpg', desc:'Complete overnight dental treatment — strengthens enamel, heals sensitivity, prevents cavities and protects gums while you sleep.'},
-    {name:'Chamakdar', img:'chamakdar.jpg', desc:'Herbal teeth-whitening powder that polishes enamel, eliminates bacteria and gives you visibly brighter, cleaner teeth naturally.'},
-    {name:"Zar'ooni", img:'zarooni.jpg', desc:'A targeted herbal formula that cleanses and rejuvenates the kidneys, flushing toxins and restoring their natural, healthy function.'},
-    {name:'Cough Heal', img:'cough-heal.jpg', desc:'Chemical-free cough relief that breaks down phlegm, clears congestion and soothes both dry and wet cough — safe for adults and children.'},
-    {name:'Energize Herbal Tea', img:'herbal-tea.jpg', desc:'A cleansing herbal tea blend that energises, detoxifies and nourishes from the inside out — your daily ritual for natural vitality.'},
-    {name:'MindPro', img:'mind-pro.jpg', desc:'Sharpens memory, clears mental fog and restores cognitive vitality with a potent blend of brain-nourishing herbs — taken nightly for best results.'},
-    {name:'Ashwagandha', img:'ashwagandha.jpg', desc:'Revered for centuries — naturally calms anxiety, lowers cortisol and restores physical and mental resilience when you need it most.'},
-    {name:'Aqseer-e-Qalb', img:'aqseer-e-qalb.jpg', desc:'A master cardiac tonic that strengthens the heart, improves circulation and supports long-term cardiovascular health — naturally and gently.'},
-    {name:'Seeds Mix', img:'seeds-mix.jpg', desc:'A powerhouse blend of healing seeds delivering concentrated nutrition, strength and whole-body wellness in every serving.'},
-    {name:'Burn Cure', img:'burn-cure.jpg', desc:'A natural paste of beeswax, aloe vera and barley that draws out heat, soothes pain and visibly accelerates burn healing.'},
-    {name:'Feminity', img:'feminity.jpg', desc:'A gentle yet powerful herbal formula crafted specifically for women\'s intimate health, hormonal balance and complete feminine wellness.'},
+    {
+      name: 'Sehat-e-Maydah',
+      img: 'sehat-e-maydah.jpg',
+      desc: 'Restores complete digestive harmony — relieves acidity, bloating, constipation and heartburn with a precise blend of five powerful herbs.',
+      tagline: 'Complete Digestive Relief. Naturally.',
+      full: `
+        <p class="intro-bold">When your gut is at peace — everything else follows.</p>
+        <p>Sehat-e-Maydah is Mahira's trusted digestive formula — a precise herbal blend of five powerful ingredients that restores complete harmony to your digestive system. It goes beyond treating symptoms to heal the root causes of common digestive issues, providing lasting relief that antacids simply cannot offer.</p>
+        <h4>✨ Why Your Gut Needs This</h4>
+        <ul><li>Relieve acidity, heartburn and gas naturally</li><li>Treat constipation and irregular digestion</li><li>Restore healthy appetite and digestion</li><li>Calm stomach pain and discomfort</li><li>Support long-term gut health and balance</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>Five-herb precision formula — nothing unnecessary</li><li>Safe for adults and children</li><li>No dependency or side effects</li><li>Treats the root cause — not just the symptom</li></ul>
+        <p class="ingredients">Active Ingredients: Chebulic Myrobalan, Mastic, Sumach, Ajowan, Rose</p>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Chronic acidity, heartburn &amp; bloating</li><li>Constipation and irregular bowel function</li><li>Anyone who wants lasting digestive wellness</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Adults: ½ teaspoon twice daily, one hour after meals. Children: ¼ teaspoon once daily, one hour after a meal. Keep refrigerated.</p></div>
+        <p class="closing">🌟 A Settled Gut Changes Everything — Energy, mood, immunity all start in the gut.</p>
+      `
+    },
+    {
+      name: 'Herbal Ease',
+      img: 'herbal-ease.jpg',
+      desc: 'A natural, gentle formula that delivers lasting relief from piles, chronic constipation and persistent digestive discomfort.',
+      tagline: 'Natural Relief. Lasting Comfort.',
+      full: `
+        <p class="intro-bold">Gentle. Effective. No side effects.</p>
+        <p>Mahira's Herbal Ease is a natural, targeted herbal formula that provides lasting relief from piles, chronic constipation and persistent digestive discomfort. Where conventional treatments offer only temporary fixes, Herbal Ease works consistently to heal the underlying condition and restore lasting comfort.</p>
+        <h4>✨ Why You Need This</h4>
+        <ul><li>Relieve pain and discomfort from piles naturally</li><li>Restore regular, healthy bowel function</li><li>Reduce internal inflammation gently</li><li>Treat chronic constipation without harsh laxatives</li><li>Support long-term digestive and colon health</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>No harsh laxatives or chemical stimulants</li><li>Safe for long-term daily use</li><li>No dependency or digestive disruption</li><li>Gentle enough for sensitive systems</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Piles (internal and external)</li><li>Chronic constipation &amp; digestive inflammation</li><li>Anyone wanting a natural, side-effect-free digestive solution</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Take as directed. Use consistently for lasting results — natural remedies work gradually and effectively with no risk of dependency.</p></div>
+        <p class="closing">🌟 Real Relief. Not Just a Quick Fix.</p>
+      `
+    },
+    {
+      name: 'Gluco Fit',
+      img: 'gluco-fit.jpg',
+      desc: 'Supports healthy blood sugar regulation and helps manage diabetes naturally — effective, safe and free from harsh synthetic compounds.',
+      tagline: 'Support Healthy Blood Sugar. Naturally.',
+      full: `
+        <p class="intro-bold">Manage your sugar. Protect your future.</p>
+        <p>Mahira's Gluco Fit is a natural, herbal supplement formulated to support healthy blood sugar regulation and help manage the effects of diabetes — without harsh synthetic compounds or side effects. Crafted with precision and 30+ years of herbal expertise, it works consistently to bring balance where modern medicine often only suppresses.</p>
+        <h4>✨ Why Your Body Needs This</h4>
+        <ul><li>Support healthy blood glucose regulation</li><li>Reduce sugar spikes after meals naturally</li><li>Improve insulin sensitivity over time</li><li>Protect organs from the effects of high sugar</li><li>Support energy levels and reduce fatigue</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>No synthetic compounds or harsh side effects</li><li>Safe for long-term daily use</li><li>Works alongside a healthy diet and lifestyle</li><li>Rooted in traditional herbal diabetes management</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Type 2 diabetes management</li><li>Pre-diabetes and blood sugar imbalances</li><li>Those reducing dependence on medication (with doctor guidance)</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Take as directed, ideally with meals or as advised by your healthcare provider. Use consistently for best results.</p></div>
+        <p class="closing">🌟 Natural Support for a Long, Healthy Life.</p>
+      `
+    },
+    {
+      name: 'Weightgone',
+      img: 'weightgone.jpg',
+      desc: 'A targeted herbal formula that boosts metabolism, breaks down stubborn fat and supports healthy, sustained weight loss from within.',
+      tagline: 'Lose Weight the Right Way. Naturally.',
+      full: `
+        <p class="intro-bold">Targeted fat loss. No crash diets. No chemicals.</p>
+        <p>Mahira's Weightgone is a scientifically-inspired herbal formula that works with your body's natural metabolism to break down stubborn fat, boost fat-burning processes and support healthy, sustained weight loss — from the inside out, without any harmful stimulants or synthetic compounds.</p>
+        <h4>✨ Why This Works</h4>
+        <ul><li>Boost metabolism and fat-burning naturally</li><li>Break down stubborn, stored fat over time</li><li>Reduce appetite and unhealthy cravings</li><li>Support healthy digestion during weight loss</li><li>Maintain energy levels while losing weight</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>No stimulants, no laxatives, no crash effects</li><li>Safe for long-term use</li><li>Supports sustainable weight loss — not quick fixes</li><li>Works best alongside a balanced diet</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Stubborn weight &amp; slow metabolism</li><li>Bloating and water retention</li><li>Those who want to lose weight without harmful supplements</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Take as directed, ideally before meals. Combine with a healthy diet and regular movement for maximum results. Use consistently for at least 8 weeks.</p></div>
+        <p class="closing">🌟 Sustainable. Natural. Yours. The best weight loss journey starts with what you put in your body.</p>
+      `
+    },
+    {
+      name: 'Slimming Water',
+      img: 'slimming-water.jpg',
+      desc: 'A cumin-based herbal detox drink that cleanses the digestive system, curbs appetite and accelerates natural fat loss.',
+      tagline: 'Detox. Slim. Refresh. Daily.',
+      full: `
+        <p class="intro-bold">Your daily cleanse — in every sip.</p>
+        <p>Mahira's Slimming Water is a cumin-based herbal detox drink that cleanses the digestive system, suppresses appetite and accelerates natural fat loss — with every serving. Rooted in ancient herbal tradition, it turns your daily hydration habit into an active wellness ritual.</p>
+        <h4>✨ Why You'll Love It</h4>
+        <ul><li>Cleanses the digestive system with every glass</li><li>Suppresses appetite and reduces overeating</li><li>Accelerates natural fat metabolism</li><li>Reduces bloating and water retention</li><li>Boosts energy while your body detoxifies</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free — active herbal formula</li><li>Easy to make and consume daily</li><li>No artificial sweeteners or stimulants</li><li>Safe for daily long-term use</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Daily detox &amp; appetite management</li><li>Bloating and weight management support</li><li>Anyone wanting a healthy daily drink habit</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Prepare as directed and drink daily, ideally in the morning or before meals. Use consistently as part of a healthy routine.</p></div>
+        <p class="closing">🌟 Every Sip Works for You — Small habits. Big changes.</p>
+      `
+    },
+    {
+      name: 'Vytaliv',
+      img: 'vytaliv.jpg',
+      desc: 'A powerful herbal detox that purifies the liver, reduces fatty deposits and restores optimal liver function for lasting wellness.',
+      tagline: 'Detox Your Liver. Restore Your Vitality.',
+      full: `
+        <p class="intro-bold">Your liver does everything — give it the support it deserves.</p>
+        <p>Mahira's Vytaliv is a powerful herbal detox formula that purifies the liver, reduces fatty deposits and restores optimal liver function for lasting, whole-body wellness. A healthy liver means better digestion, clearer skin, more energy and stronger immunity — Vytaliv delivers all four.</p>
+        <h4>✨ Why Your Liver Needs This</h4>
+        <ul><li>Purify and detoxify the liver naturally</li><li>Reduce fatty liver deposits over time</li><li>Improve digestion and nutrient absorption</li><li>Boost energy by clearing metabolic waste</li><li>Support skin clarity and overall vitality</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>Targeted liver formula — not a generic detox</li><li>No harsh laxatives or diuretics</li><li>Safe for long-term use, works gently yet consistently</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Fatty liver disease &amp; sluggish digestion</li><li>Skin issues linked to poor liver function</li><li>Anyone wanting to detox and reset their system</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Take as directed, ideally in the morning. Use consistently for a minimum of 4–6 weeks for deep liver detox and visible results.</p></div>
+        <p class="closing">🌟 When Your Liver Thrives — You Thrive.</p>
+      `
+    },
+    {
+      name: 'Dental Cure',
+      img: 'dental-cure.jpg',
+      desc: 'Complete overnight dental treatment — strengthens enamel, heals sensitivity, prevents cavities and protects gums while you sleep.',
+      tagline: 'The Overnight Treatment Your Dentist Didn\'t Tell You About.',
+      full: `
+        <p class="intro-bold">Complete dental health — while you sleep.</p>
+        <p>Mahira's Dental Cure is a comprehensive, herbal overnight dental treatment that works on your teeth and gums while you rest. Applied nightly before bed, it strengthens enamel, heals gum recession, treats sensitivity at its root and prevents cavity formation — entirely without fluoride, alcohol or synthetic whitening agents.</p>
+        <h4>✨ Why Your Teeth Need This</h4>
+        <ul><li>Strengthen tooth enamel naturally</li><li>Heal receding and inflamed gums</li><li>Treat tooth sensitivity from the root cause</li><li>Prevent cavities and plaque formation</li><li>Ensure complete, lasting oral health</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>No fluoride, alcohol or artificial whiteners</li><li>Works overnight — deep treatment while you sleep</li><li>Addresses gums and enamel, not just surface cleaning</li></ul>
+        <p class="ingredients">Active Ingredients: Emblic Myrobalan, Chebulic Myrobalan, Turmeric, Areca Nut, Sandalwood, Mastic Gum</p>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Tooth sensitivity &amp; receding or bleeding gums</li><li>Cavity prevention &amp; complete natural oral health</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Apply Dental Cure onto teeth and gums at night as the very last step of your evening routine. Do not rinse, drink water or eat anything after applying. Use every night.</p></div>
+        <p class="closing">🌟 Your Best Smile — Naturally Built. Healthy teeth are made overnight, not at the dentist.</p>
+      `
+    },
+    {
+      name: 'Chamakdar',
+      img: 'chamakdar.jpg',
+      desc: 'Herbal teeth-whitening powder that polishes enamel, eliminates bacteria and gives you visibly brighter, cleaner teeth naturally.',
+      tagline: 'Naturally Brighter Teeth. Every Day.',
+      full: `
+        <p class="intro-bold">Whiter teeth. Fresher breath. No chemicals.</p>
+        <p>Chamakdar is Mahira's herbal teeth-whitening and cleaning powder — a natural alternative to chemical whitening products that erode enamel and cause sensitivity. It polishes teeth gently, eliminates bacteria and delivers visibly brighter, cleaner teeth with every use.</p>
+        <h4>✨ Why You'll Love It</h4>
+        <ul><li>Polish enamel naturally without erosion</li><li>Remove surface stains from tea, coffee and food</li><li>Eliminate bacteria and prevent bad breath</li><li>Strengthen teeth with every use</li><li>Deliver a visibly cleaner, brighter smile</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>No bleach, no peroxide, no harsh abrasives</li><li>Safe for daily use without enamel damage</li><li>Freshens breath naturally, works for the whole family</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Stained or yellowing teeth &amp; bad breath</li><li>Anyone who wants a natural teeth-whitening routine</li><li>Sensitive teeth that can't use chemical whiteners</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Apply a small amount to a wet toothbrush and brush as usual. Use daily or as needed. Safe for regular use alongside your existing oral care routine.</p></div>
+        <p class="closing">🌟 A Brighter Smile the Natural Way.</p>
+      `
+    },
+    {
+      name: "Zar'ooni",
+      img: 'zarooni.jpg',
+      desc: 'A targeted herbal formula that cleanses and rejuvenates the kidneys, flushing toxins and restoring their natural, healthy function.',
+      tagline: 'Cleanse. Rejuvenate. Protect Your Kidneys.',
+      full: `
+        <p class="intro-bold">Give your kidneys the reset they need.</p>
+        <p>Mahira's Zar'ooni is a targeted herbal formula crafted to cleanse and rejuvenate the kidneys — flushing accumulated toxins, dissolving minor deposits and restoring their natural, healthy function. Healthy kidneys mean cleaner blood, better energy and a body that truly detoxifies itself.</p>
+        <h4>✨ Why Your Kidneys Need This</h4>
+        <ul><li>Flush toxins and impurities from the kidneys</li><li>Dissolve minor kidney deposits naturally</li><li>Restore and improve kidney filtration function</li><li>Reduce water retention and puffiness</li><li>Support urinary health and comfort</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>Targeted kidney formula — not a generic detox</li><li>No harsh diuretics or synthetic compounds</li><li>Safe for regular cleansing use</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Kidney cleansing &amp; water retention</li><li>Minor urinary discomfort</li><li>Anyone wanting to support their kidneys proactively</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Take as directed, ideally with plenty of water throughout the day. Use consistently for a full cleansing cycle of 4–6 weeks.</p></div>
+        <p class="closing">🌟 Clean Kidneys. Clean Blood. Clean Body.</p>
+      `
+    },
+    {
+      name: 'Cough Heal',
+      img: 'cough-heal.jpg',
+      desc: 'Chemical-free cough relief that breaks down phlegm, clears congestion and soothes both dry and wet cough — safe for adults and children.',
+      tagline: 'Real Relief. No Chemicals. No Side Effects.',
+      full: `
+        <p class="intro-bold">End the cough — naturally and completely.</p>
+        <p>Mahira's Cough Heal is a powerful, all-natural herbal remedy for coughs of every kind. Whether you're dealing with a dry, irritating cough, a wet cough with heavy phlegm or stubborn chest congestion — Cough Heal works directly to loosen phlegm, soothe inflamed airways and restore comfortable breathing without antihistamines, alcohol or chemical suppressants.</p>
+        <h4>✨ Why You'll Love It</h4>
+        <ul><li>Break down and expel phlegm naturally</li><li>Soothe dry, irritated airways and throat</li><li>Clear chest congestion thoroughly</li><li>Calm persistent cough quickly</li><li>Support full respiratory recovery</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>No alcohol, antihistamines or artificial suppressants</li><li>Safe for children from 3 years of age</li><li>Works on dry and wet cough — no drowsiness</li></ul>
+        <p class="ingredients">Active Ingredients: Tragacanth, Endive, Chebulic Myrobalan, Galls Pistacia</p>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Dry, persistent cough &amp; wet cough with phlegm</li><li>Chest congestion &amp; seasonal cough and cold</li><li>Cough in children (3+ years) and adults</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Adults: ½ teaspoon half an hour after meals, twice daily. Children (3–12 years): ¼ teaspoon once daily. Keep refrigerated.</p></div>
+        <p class="closing">🌟 Breathe Easy Again. Naturally.</p>
+      `
+    },
+    {
+      name: 'Energize Herbal Tea',
+      img: 'herbal-tea.jpg',
+      desc: 'A cleansing herbal tea blend that energises, detoxifies and nourishes from the inside out — your daily ritual for natural vitality.',
+      tagline: 'Your Daily Ritual for Natural Vitality.',
+      full: `
+        <p class="intro-bold">Detox. Energise. Nourish — in every cup.</p>
+        <p>Mahira's Energize Herbal Tea is a carefully crafted blend of cleansing and energising herbs that turns your daily tea habit into an active wellness ritual. With every cup, your body is gently detoxified, your energy is naturally lifted and your system is nourished — without caffeine crash or artificial stimulants.</p>
+        <h4>✨ Why You'll Love It</h4>
+        <ul><li>Detoxify and cleanse the system with every sip</li><li>Boost natural energy levels without caffeine dependency</li><li>Nourish the body with herbal goodness</li><li>Support digestion and gut health daily</li><li>Calm the mind while energising the body</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural herbal blend — no artificial flavours</li><li>Caffeine-conscious and gentle on the system</li><li>No preservatives or synthetic additives</li><li>Safe for daily long-term use</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Low energy &amp; daily detox</li><li>Digestive support &amp; replacing chemical energy drinks</li><li>Anyone wanting a natural, enjoyable daily wellness ritual</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Brew one cup with hot (not boiling) water and steep for 5–7 minutes. Drink once or twice daily, ideally in the morning. Enjoy plain or with a little honey.</p></div>
+        <p class="closing">🌟 A Cup of Wellness. Every Single Day.</p>
+      `
+    },
+    {
+      name: 'MindPro',
+      img: 'mind-pro.jpg',
+      desc: 'Sharpens memory, clears mental fog and restores cognitive vitality with a potent blend of brain-nourishing herbs — taken nightly for best results.',
+      tagline: 'A Sharper Mind. A Calmer You.',
+      full: `
+        <p class="intro-bold">Think clearer. Remember more. Sleep better.</p>
+        <p>Mahira's MindPro is a pure, organic and preservative-free herbal supplement formulated to restore mental clarity, sharpen memory and rebuild cognitive vitality that stress, ageing and poor sleep have quietly eroded. Taken nightly before sleep, it works during your body's natural repair cycle to nourish the brain and improve both sleep quality and mental performance.</p>
+        <h4>✨ Why Your Mind Needs This</h4>
+        <ul><li>Sharpen memory and recall naturally</li><li>Clear mental fog and improve focus</li><li>Calm anxiety and reduce mental stress</li><li>Improve sleep quality and depth</li><li>Restore cognitive vitality and alertness</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural, organic &amp; preservative-free</li><li>Works while you sleep — no daytime drowsiness</li><li>No synthetic nootropics or chemical stimulants</li><li>Safe for long-term nightly use</li></ul>
+        <p class="ingredients">Active Ingredients: Behen Linn, Silk Cones — Note: Not recommended for pregnant or breastfeeding mothers.</p>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Poor memory &amp; mental fog</li><li>Anxiety, stress &amp; poor quality sleep</li><li>Students, professionals and anyone with high cognitive demands</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Take ½ teaspoon with water immediately before going to sleep. Use nightly for consistent results. Allow 3–4 weeks for full cognitive benefits to develop. Keep refrigerated.</p></div>
+        <p class="closing">🌟 Your Best Mind Is Still Ahead of You.</p>
+      `
+    },
+    {
+      name: 'Ashwagandha',
+      img: 'ashwagandha.jpg',
+      desc: 'Revered for centuries — naturally calms anxiety, lowers cortisol and restores physical and mental resilience when you need it most.',
+      tagline: 'Ancient Calm. Modern Resilience.',
+      full: `
+        <p class="intro-bold">The stress is real. So is the solution.</p>
+        <p>Mahira's Ashwagandha is a premium, pure herbal supplement made from one of Ayurveda's most revered adaptogenic herbs. Clinically studied and traditionally trusted for centuries, it naturally lowers cortisol, calms anxiety and rebuilds physical and mental resilience — giving your body the tools it needs to handle modern stress without pharmaceutical side effects.</p>
+        <h4>✨ Why You Need This</h4>
+        <ul><li>Reduce cortisol and stress hormone levels</li><li>Calm anxiety and restore emotional balance</li><li>Improve sleep quality and recovery</li><li>Rebuild physical stamina and endurance</li><li>Strengthen immunity weakened by stress</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% pure ashwagandha — no fillers</li><li>Adaptogenic — helps your body adapt to stress</li><li>No synthetic anxiolytics or sedatives</li><li>Safe for long-term daily use</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Chronic stress, anxiety &amp; burnout</li><li>Poor sleep caused by stress</li><li>Anyone wanting natural anxiety management</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Take as directed, ideally at the same time each day. Can be taken with warm milk or water. Use consistently for a minimum of 6–8 weeks for full adaptogenic effect.</p></div>
+        <p class="closing">🌟 Stress Less. Live More. Naturally. Thousands of years of wisdom — available to you today.</p>
+      `
+    },
+    {
+      name: 'Aqseer-e-Qalb',
+      img: 'aqseer-e-qalb.jpg',
+      desc: 'A master cardiac tonic that strengthens the heart, improves circulation and supports long-term cardiovascular health — naturally and gently.',
+      tagline: 'Strengthen Your Heart. Protect Your Future.',
+      full: `
+        <p class="intro-bold">Your heart works for you every second — work for it.</p>
+        <p>Mahira's Aqseer-e-Qalb is a master cardiac herbal tonic formulated to strengthen the heart muscle, improve circulation and support long-term cardiovascular health — naturally, gently and without pharmaceutical side effects. Crafted with precision from powerful cardio-supportive herbs, it is one of Mahira's most trusted wellness formulas.</p>
+        <h4>✨ Why Your Heart Needs This</h4>
+        <ul><li>Strengthen the heart muscle over time</li><li>Improve blood circulation and flow</li><li>Reduce strain on the cardiovascular system</li><li>Support healthy blood pressure naturally</li><li>Protect against long-term cardiac stress</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>Precision cardiac formula — not a generic tonic</li><li>No synthetic heart medications or stimulants</li><li>Safe for long-term daily preventive care</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Heart health maintenance &amp; high blood pressure</li><li>Poor circulation &amp; family history of heart disease</li><li>Those wanting natural cardiovascular support</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Take as directed daily, ideally in the morning. Those with existing heart conditions should consult their doctor before use.</p></div>
+        <p class="closing">🌟 A Strong Heart Starts with Natural Care. Don't wait for a problem.</p>
+      `
+    },
+    {
+      name: 'Seeds Mix',
+      img: 'seeds-mix.jpg',
+      desc: 'A powerhouse blend of healing seeds delivering concentrated nutrition, strength and whole-body wellness in every serving.',
+      tagline: 'Concentrated Nutrition. In Every Serving.',
+      full: `
+        <p class="intro-bold">Nature's most powerful seeds. One blend.</p>
+        <p>Mahira's Seeds Mix is a carefully selected blend of the most nutritionally dense healing seeds, combined to deliver concentrated vitamins, minerals, essential fatty acids and whole-body wellness support in every single serving. Simple, pure and extraordinarily nourishing.</p>
+        <h4>✨ Why Your Body Needs This</h4>
+        <ul><li>Concentrated essential fatty acids for brain and heart</li><li>Natural fibre for digestive health</li><li>Minerals and vitamins for bone and nerve health</li><li>Antioxidant protection from natural compounds</li><li>Sustained energy and whole-body nourishment</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural — no additives or preservatives</li><li>Multiple seeds combined for nutritional synergy</li><li>Easy to add to any food or take alone</li><li>Safe for daily long-term use, suitable for all ages</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Nutritional gaps &amp; heart and brain health</li><li>Digestive health &amp; daily energy</li><li>Anyone wanting an easy, natural nutrition boost</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Take one serving daily — add to yoghurt, smoothies, oatmeal or eat directly. Use consistently as part of your daily nutrition routine.</p></div>
+        <p class="closing">🌟 Small Seeds. Extraordinary Impact.</p>
+      `
+    },
+    {
+      name: 'Burn Cure',
+      img: 'burn-cure.jpg',
+      desc: 'A natural paste of beeswax, aloe vera and barley that draws out heat, soothes pain and visibly accelerates burn healing.',
+      tagline: 'Nature\'s Answer to Burns — Fast, Gentle, Effective.',
+      full: `
+        <p class="intro-bold">Cool the heat. Heal the skin. Naturally.</p>
+        <p>Mahira's Burn Cure is a time-tested herbal remedy for burns of all kinds — minor household burns, scalds and heat-related skin damage. Applied as a fresh paste directly to the affected area, it draws out heat immediately, soothes acute pain and supports rapid skin regeneration without scarring or chemical interference.</p>
+        <h4>✨ Why It Works</h4>
+        <ul><li>Draws out heat from the burn immediately</li><li>Soothes burning pain and discomfort on contact</li><li>Prevents infection in the affected area</li><li>Supports rapid skin regeneration</li><li>Minimises scarring with consistent use</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural — beeswax, aloe vera and barley</li><li>No chemical cooling agents or synthetic dressings</li><li>Safe for all ages including children</li><li>No side effects or skin sensitisation</li></ul>
+        <p class="ingredients">Active Ingredients: Beeswax, Aloe Vera, Barley</p>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Minor household burns &amp; scalds</li><li>Sunburn &amp; children's minor burns</li><li>Anyone wanting a natural first-aid burn remedy at home</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Mix the powder with clean water to form a smooth paste. Apply generously to the affected area and leave on. Reapply as needed. For deeper burns, apply a thick layer and cover loosely with clean gauze.</p></div>
+        <p class="closing">🌟 Every Home Needs This. Because burns don't wait — and neither should your healing.</p>
+      `
+    },
+    {
+      name: 'Feminity',
+      img: 'feminity.jpg',
+      desc: 'A gentle yet powerful herbal formula crafted specifically for women\'s intimate health, hormonal balance and complete feminine wellness.',
+      tagline: 'Complete Feminine Wellness. Naturally.',
+      full: `
+        <p class="intro-bold">Crafted for you. By someone who understands.</p>
+        <p>Mahira's Feminity is a gentle yet powerful herbal formula crafted specifically for women's intimate health, hormonal balance and complete feminine wellness. Made with deep understanding of women's bodies and rooted in traditional herbal feminine care, it treats the underlying causes of common feminine health concerns — naturally, safely and effectively.</p>
+        <h4>✨ Why You Need This</h4>
+        <ul><li>Treat leucorrhea and abnormal discharge naturally</li><li>Restore natural hormonal balance</li><li>Reduce pelvic discomfort and inflammation</li><li>Strengthen and tone the reproductive system</li><li>Support overall feminine health and wellness</li></ul>
+        <h4>🌱 What Makes It Different</h4>
+        <ul><li>100% natural &amp; chemical-free</li><li>Formulated specifically for women's health</li><li>No synthetic hormones or harsh compounds</li><li>Safe for regular, long-term use</li></ul>
+        <div class="perfect-for"><p>💡 Perfect For</p><ul><li>Leucorrhea &amp; hormonal imbalance</li><li>Pelvic discomfort &amp; post-illness recovery</li><li>Any woman wanting natural intimate health support</li></ul></div>
+        <div class="how-to"><p><strong>🛒 How to Use</strong><br>Take as directed. Use consistently for best results. Consult your doctor if symptoms are severe.</p></div>
+        <p class="closing">🌟 Because Your Health Is Worth Protecting. A formula made with care, by a woman who knows.</p>
+      `
+    },
   ]
 };
 
-function buildGrid(id, items, catLabel) {
-  const grid = document.getElementById(id);
-  items.forEach(p => {
+function buildGrid(gridId, items, catLabel) {
+  const grid = document.getElementById(gridId);
+  items.forEach((p, i) => {
     const imgPath = './images/products/' + p.img;
-    grid.innerHTML += `
-      <div class="product-card">
-        <img class="product-card__img" src="${imgPath}" alt="${p.name}"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="product-card__img-placeholder" style="display:none">🌿</div>
-        <div class="product-card__body">
-          <div class="product-card__cat">${catLabel}</div>
-          <div class="product-card__name">${p.name}</div>
-          <p class="product-card__desc">${p.desc}</p>
-          <a href="${WA}${encodeURIComponent(p.name)}" target="_blank" class="btn-wa">
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+      <img class="product-card__img" src="${imgPath}" alt="${p.name}"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-card__img-placeholder" style="display:none">🌿</div>
+      <div class="product-card__body">
+        <div class="product-card__cat">${catLabel}</div>
+        <div class="product-card__name">${p.name}</div>
+        <p class="product-card__desc">${p.desc}</p>
+        <div class="card-actions">
+          <a href="${WA_BASE}${encodeURIComponent(p.name)}" target="_blank" class="btn-wa">
             <i class="fab fa-whatsapp"></i> Order on WhatsApp
           </a>
+          <button class="btn-details" onclick="openModal('${catLabel}',${i})">
+            <i class="fas fa-info-circle"></i> Full Description
+          </button>
         </div>
       </div>`;
+    grid.appendChild(card);
   });
 }
+
 buildGrid('skincare-grid', products.skincare, 'Skincare');
 buildGrid('haircare-grid', products.haircare, 'Haircare');
 buildGrid('wellness-grid', products.wellness, 'Wellness');
 buildGrid('herbal-grid', products.herbal, 'Herbal Medicines');
+
+const catMap = {
+  'Skincare': products.skincare,
+  'Haircare': products.haircare,
+  'Wellness': products.wellness,
+  'Herbal Medicines': products.herbal
+};
+
+function openModal(cat, idx) {
+  const p = catMap[cat][idx];
+  document.getElementById('modal-cat').textContent = cat;
+  document.getElementById('modal-name').textContent = p.name;
+  document.getElementById('modal-tagline').textContent = p.tagline;
+  const img = document.getElementById('modal-img');
+  img.src = './images/products/' + p.img;
+  img.alt = p.name;
+  img.onerror = function(){ this.style.display='none'; };
+  document.getElementById('modal-body').innerHTML = p.full;
+  document.getElementById('modal-wa-link').href = WA_BASE + encodeURIComponent(p.name);
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOnBg(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
 </body>
 </html>
